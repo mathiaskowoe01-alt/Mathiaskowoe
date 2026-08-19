@@ -13,7 +13,7 @@ export const siteData = {
     phone: "+229 01 57 30 76 77",
     phoneDisplay: "+229 01 57 30 76 77",
     phoneSecondary: "+229 01 58 16 10 26",
-    email: "contact@mathiasdev.com",
+    email: "mathiaskowoe01@gmail.com",
     whatsappUrl: "https://wa.me/2290157307677?text=Bonjour%20Mathias%2C%20j%27ai%20un%20projet%20%C3%A0%20discuter.",
     location: "Cotonou, Bénin • Rayonnement International",
     socials: {
