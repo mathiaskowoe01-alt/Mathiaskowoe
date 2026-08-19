@@ -123,50 +123,48 @@ export default function ClientPortalBento({ onOpenSandbox }) {
 
           </div>
 
-          {/* Card 2: Visual Pin Feedback (5 cols) */}
-          <div className="md:col-span-12 lg:col-span-5 rounded-[32px] border border-gray-200/90 bg-brand-dark text-white p-6 sm:p-8 flex flex-col justify-between shadow-xl relative overflow-hidden group">
+          {/* Card 2: Visual Pin Feedback (5 cols - Light Theme) */}
+          <div className="md:col-span-12 lg:col-span-5 rounded-[32px] border border-gray-200/90 bg-[#FAFBFC] text-brand-dark p-6 sm:p-8 flex flex-col justify-between shadow-card-soft hover:shadow-card-hover transition-all duration-300 group">
             
-            <div className="absolute -right-16 -bottom-16 h-48 w-48 rounded-full bg-brand-primary/20 blur-3xl pointer-events-none"></div>
-
             <div>
               <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 rounded-xl bg-white/10 px-3 py-1 text-xs font-bold text-brand-primary backdrop-blur-md">
+                <span className="inline-flex items-center gap-1.5 rounded-xl bg-brand-primary/10 px-3 py-1 text-xs font-bold text-brand-primary">
                   <Pin className="h-3.5 w-3.5" />
                   Feedbacks Visuels
                 </span>
                 <span className="text-[11px] font-mono text-gray-400">Zéro confusion</span>
               </div>
 
-              <h3 className="mt-4 font-nunito text-2xl font-black text-white">
+              <h3 className="mt-4 font-nunito text-2xl font-black text-brand-dark">
                 Commentez directement sur les écrans
               </h3>
-              <p className="mt-2 font-montserrat text-xs sm:text-sm text-gray-300">
+              <p className="mt-2 font-montserrat text-xs sm:text-sm text-gray-600">
                 Cliquez n'importe où sur une maquette pour déposer votre remarque avec photo ou texte.
               </p>
             </div>
 
             {/* Interactive Mockup Pin Demo */}
-            <div className="mt-6 rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-md relative">
-              <div className="rounded-lg bg-white/10 p-3 flex items-center justify-between text-xs">
-                <span className="font-mono text-gray-300">Écran : Page_Accueil_V2.fig</span>
-                <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
+            <div className="mt-6 rounded-2xl border border-gray-200 bg-gray-100/70 p-4 relative">
+              <div className="rounded-lg bg-white border border-gray-200/80 p-3 flex items-center justify-between text-xs shadow-sm">
+                <span className="font-mono text-gray-700 font-medium">Écran : Page_Accueil_V2.fig</span>
+                <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
               </div>
 
               {/* Simulated Pin Dot */}
-              <div className="mt-3 relative h-20 rounded-lg bg-black/40 border border-white/10 flex items-center justify-center p-3">
+              <div className="mt-3 relative h-20 rounded-lg bg-white border border-gray-200 flex items-center justify-center p-3 shadow-inner">
                 <div className="absolute top-2 left-6 flex items-center gap-2 animate-bounce">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary text-white font-bold text-[10px] shadow-lg">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary text-white font-bold text-[10px] shadow-md">
                     1
                   </div>
                 </div>
 
-                <p className="text-[11px] text-gray-300 font-montserrat italic text-center max-w-[260px]">
+                <p className="text-[11px] text-gray-700 font-montserrat italic text-center max-w-[260px] font-medium">
                   « {pinnedNote} »
                 </p>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
+            <div className="mt-6 pt-4 border-t border-gray-200/70 flex items-center justify-between text-xs text-gray-500">
               <span>Appliqué et résolu sous 24h</span>
               <span className="text-brand-primary font-bold">100% traçabilité</span>
             </div>
