@@ -37,8 +37,6 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
 
   const navLinks = [
     { name: 'Accueil', href: '#hero', id: 'hero' },
-    { name: 'Le Problème', href: '#probleme', id: 'probleme' },
-    { name: 'Espace Client', href: '#espace-client', id: 'espace-client', badge: 'Exclusif' },
     { name: 'Services', href: '#services', id: 'services' },
     { name: 'Portfolio', href: '#portfolio', id: 'portfolio' },
     { name: 'Processus', href: '#processus', id: 'processus' },
