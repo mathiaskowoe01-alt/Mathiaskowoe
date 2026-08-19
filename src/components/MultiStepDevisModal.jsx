@@ -65,8 +65,8 @@ export default function MultiStepDevisModal({ isOpen, onClose, initialService })
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl overflow-hidden rounded-[32px] bg-white p-6 sm:p-10 shadow-2xl animate-in zoom-in-95 duration-200 max-h-[95vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl sm:rounded-[32px] bg-white p-5 sm:p-8 md:p-10 shadow-2xl animate-in zoom-in-95 duration-200 max-h-[92vh] overflow-y-auto">
         
         {/* Modal Top Bar */}
         <div className="flex items-center justify-between pb-4 border-b border-gray-100">

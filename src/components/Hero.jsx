@@ -54,18 +54,18 @@ export default function Hero({ onOpenDevis, onOpenSandbox }) {
               </p>
 
               {/* Action Buttons */}
-              <div className="mt-9 flex flex-wrap items-center gap-4">
+              <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
                 <button
                   onClick={onOpenDevis}
-                  className="btn-magnetic group inline-flex items-center gap-3 rounded-full bg-white px-8 sm:px-10 py-4 sm:py-4.5 font-montserrat font-bold text-brand-dark shadow-xl hover:bg-brand-primary hover:text-white transition-all duration-300"
+                  className="btn-magnetic group inline-flex items-center justify-center gap-3 rounded-full bg-white px-7 sm:px-10 py-3.5 sm:py-4.5 font-montserrat font-bold text-brand-dark shadow-xl hover:bg-brand-primary hover:text-white transition-all duration-300 w-full sm:w-auto text-sm sm:text-base"
                 >
                   <span>Démarrer votre projet</span>
-                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5 text-brand-primary group-hover:text-white" />
+                  <ArrowRight className="h-4.5 w-4.5 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:translate-x-1.5 text-brand-primary group-hover:text-white" />
                 </button>
 
                 <button
                   onClick={onOpenSandbox}
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/5 px-6 py-4 font-montserrat text-xs sm:text-sm font-semibold text-white backdrop-blur-md hover:bg-white/15 transition-all"
+                  className="inline-flex items-center justify-center gap-2.5 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 sm:py-4 font-montserrat text-xs sm:text-sm font-semibold text-white backdrop-blur-md hover:bg-white/15 transition-all w-full sm:w-auto"
                 >
                   <Shield className="h-4 w-4 text-brand-primary" />
                   <span>Tester l'Espace Client</span>

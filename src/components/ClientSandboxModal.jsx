@@ -62,13 +62,13 @@ export default function ClientSandboxModal({ isOpen, onClose, onOpenDevis }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-4xl overflow-hidden rounded-[32px] bg-[#0F111A] text-white p-5 sm:p-8 shadow-2xl border border-white/15 animate-in zoom-in-95 duration-200 max-h-[95vh] flex flex-col">
+      <div className="relative w-full max-w-4xl overflow-hidden rounded-3xl sm:rounded-[32px] bg-[#0F111A] text-white p-4 sm:p-7 md:p-8 shadow-2xl border border-white/15 animate-in zoom-in-95 duration-200 max-h-[92vh] flex flex-col">
         
         {/* Top Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/10 shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-primary text-white font-black text-sm">
-              K
+        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-brand-primary text-white font-black text-sm">
+              M
             </div>
             <div>
               <div className="flex items-center gap-2">
