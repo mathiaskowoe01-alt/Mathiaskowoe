@@ -10,13 +10,13 @@ export default {
         brand: {
           dark: '#1A1A2E',
           darker: '#0F111A',
-          primary: '#E8531E',
-          'primary-hover': '#D44412',
+          primary: '#2563EB',
+          'primary-hover': '#1D4ED8',
           light: '#FAFBFC',
           surface: '#FFFFFF',
           border: '#E5E7EB',
           muted: '#6B7280',
-          accent: '#FF7A45',
+          accent: '#38BDF8',
         }
       },
       fontFamily: {
@@ -25,8 +25,8 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        'glow-primary': '0 0 25px rgba(232, 83, 30, 0.35)',
-        'glow-sm': '0 0 15px rgba(232, 83, 30, 0.2)',
+        'glow-primary': '0 0 25px rgba(37, 99, 235, 0.35)',
+        'glow-sm': '0 0 15px rgba(37, 99, 235, 0.2)',
         'card-soft': '0 4px 20px rgba(0, 0, 0, 0.05)',
         'card-hover': '0 20px 40px -15px rgba(0, 0, 0, 0.1)',
         'pill': '0 4px 20px rgba(0, 0, 0, 0.06)',

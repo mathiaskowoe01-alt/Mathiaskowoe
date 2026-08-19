@@ -106,7 +106,7 @@ export default function Footer({ onOpenDevis, onOpenSandbox }) {
               </li>
               <li>
                 <a href={`tel:${siteData.profile.phoneSecondary.replace(/\s+/g, '')}`} className="flex items-center gap-3 text-gray-600 hover:text-brand-primary transition-colors group">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-50 text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
                     <Phone className="h-3.5 w-3.5" />
                   </span>
                   <div>
@@ -117,7 +117,7 @@ export default function Footer({ onOpenDevis, onOpenSandbox }) {
               </li>
               <li>
                 <a href={`mailto:${siteData.profile.email}`} className="flex items-center gap-3 text-gray-600 hover:text-brand-primary transition-colors group">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-50 text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
                     <Mail className="h-3.5 w-3.5" />
                   </span>
                   <span>{siteData.profile.email}</span>

@@ -26,7 +26,7 @@ export const siteData = {
 
   stats: [
     { label: "PROJETS LIVRÉS", value: "60+", color: "#10B981" },
-    { label: "EXPÉRIENCE", value: "5+ ans", color: "#E8531E" },
+    { label: "EXPÉRIENCE", value: "5+ ans", color: "#2563EB" },
     { label: "SATISFACTION", value: "99.2%", color: "#3B82F6" },
     { label: "DÉLAIS RESPECTÉS", value: "100%", color: "#F59E0B" },
   ],

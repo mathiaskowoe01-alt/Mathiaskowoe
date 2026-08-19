@@ -43,7 +43,7 @@ export default function Hero({ onOpenDevis, onOpenSandbox }) {
               <h1 className="mt-7 font-nunito text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-black leading-[1.08] tracking-tight text-white">
                 Créateur <br className="hidden sm:inline" />
                 De Solutions <br />
-                <span className="bg-gradient-to-r from-brand-primary via-orange-400 to-amber-300 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-400 via-sky-300 to-cyan-200 bg-clip-text text-transparent">
                   Web d'Exception
                 </span>
               </h1>

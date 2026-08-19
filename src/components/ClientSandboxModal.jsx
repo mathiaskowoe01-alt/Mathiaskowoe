@@ -157,7 +157,7 @@ export default function ClientSandboxModal({ isOpen, onClose, onOpenDevis }) {
                           m.status === 'Terminé' 
                             ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' 
                             : m.status === 'En cours' 
-                            ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' 
+                            ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' 
                             : 'bg-gray-700 text-gray-400'
                         }`}>
                           {m.status}

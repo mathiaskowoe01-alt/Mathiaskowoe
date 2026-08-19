@@ -217,7 +217,7 @@ export default function ClientPortalBento({ onOpenSandbox }) {
           </div>
 
           {/* Card 4: Staging Preview & Live Test Sandbox (7 cols) */}
-          <div className="md:col-span-12 lg:col-span-7 rounded-[32px] border border-gray-200/90 bg-gradient-to-br from-white to-orange-50/30 p-6 sm:p-8 flex flex-col justify-between shadow-card-soft hover:shadow-card-hover transition-all duration-300">
+          <div className="md:col-span-12 lg:col-span-7 rounded-[32px] border border-gray-200/90 bg-gradient-to-br from-white to-blue-50/40 p-6 sm:p-8 flex flex-col justify-between shadow-card-soft hover:shadow-card-hover transition-all duration-300">
             <div>
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 rounded-xl bg-brand-primary/10 px-3 py-1 text-xs font-bold text-brand-primary">

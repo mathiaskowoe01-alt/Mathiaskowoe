@@ -123,7 +123,7 @@ export default function MultiStepDevisModal({ isOpen, onClose, initialService })
                       onClick={() => setFormData({ ...formData, serviceType: item.id })}
                       className={`cursor-pointer rounded-2xl border p-4 transition-all ${
                         formData.serviceType === item.id
-                          ? 'border-brand-primary bg-orange-50/40 ring-2 ring-brand-primary/20 shadow-sm'
+                          ? 'border-brand-primary bg-blue-50/50 ring-2 ring-brand-primary/20 shadow-sm'
                           : 'border-gray-200 bg-white hover:border-gray-300'
                       }`}
                     >
@@ -158,7 +158,7 @@ export default function MultiStepDevisModal({ isOpen, onClose, initialService })
                       onClick={() => setFormData({ ...formData, goal: obj.id })}
                       className={`cursor-pointer rounded-2xl border p-4 text-xs sm:text-sm font-semibold transition-all ${
                         formData.goal === obj.id
-                          ? 'border-brand-primary bg-orange-50/40 text-brand-primary font-bold ring-2 ring-brand-primary/20'
+                          ? 'border-brand-primary bg-blue-50/50 text-brand-primary font-bold ring-2 ring-brand-primary/20'
                           : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
                       }`}
                     >
@@ -189,7 +189,7 @@ export default function MultiStepDevisModal({ isOpen, onClose, initialService })
                       onClick={() => setFormData({ ...formData, deadline: dl.id })}
                       className={`cursor-pointer rounded-2xl border p-4 text-xs sm:text-sm font-semibold transition-all ${
                         formData.deadline === dl.id
-                          ? 'border-brand-primary bg-orange-50/40 text-brand-primary font-bold ring-2 ring-brand-primary/20'
+                          ? 'border-brand-primary bg-blue-50/50 text-brand-primary font-bold ring-2 ring-brand-primary/20'
                           : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
                       }`}
                     >
@@ -220,7 +220,7 @@ export default function MultiStepDevisModal({ isOpen, onClose, initialService })
                       onClick={() => setFormData({ ...formData, budget: b.id })}
                       className={`cursor-pointer rounded-2xl border p-4 text-xs sm:text-sm font-semibold transition-all ${
                         formData.budget === b.id
-                          ? 'border-brand-primary bg-orange-50/40 text-brand-primary font-bold ring-2 ring-brand-primary/20'
+                          ? 'border-brand-primary bg-blue-50/50 text-brand-primary font-bold ring-2 ring-brand-primary/20'
                           : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
                       }`}
                     >
@@ -249,7 +249,7 @@ export default function MultiStepDevisModal({ isOpen, onClose, initialService })
                       onClick={() => setFormData({ ...formData, projectState: st.id })}
                       className={`cursor-pointer rounded-2xl border p-4 text-xs sm:text-sm font-semibold transition-all ${
                         formData.projectState === st.id
-                          ? 'border-brand-primary bg-orange-50/40 text-brand-primary font-bold ring-2 ring-brand-primary/20'
+                          ? 'border-brand-primary bg-blue-50/50 text-brand-primary font-bold ring-2 ring-brand-primary/20'
                           : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
                       }`}
                     >

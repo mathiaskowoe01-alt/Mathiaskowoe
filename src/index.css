@@ -3,13 +3,13 @@
 @theme {
   --color-brand-dark: #1A1A2E;
   --color-brand-darker: #0F111A;
-  --color-brand-primary: #E8531E;
-  --color-brand-primary-hover: #D44412;
+  --color-brand-primary: #2563EB;
+  --color-brand-primary-hover: #1D4ED8;
   --color-brand-light: #FAFBFC;
   --color-brand-surface: #FFFFFF;
   --color-brand-border: #E5E7EB;
   --color-brand-muted: #6B7280;
-  --color-brand-accent: #FF7A45;
+  --color-brand-accent: #38BDF8;
 
   --font-nunito: 'Nunito', sans-serif;
   --font-montserrat: 'Montserrat', sans-serif;
@@ -73,7 +73,7 @@ body::before {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #E8531E;
+  background: #2563EB;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -126,11 +126,11 @@ body::before {
 }
 
 .shadow-glow-sm {
-  box-shadow: 0 0 15px rgba(232, 83, 30, 0.25);
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.25);
 }
 
 .shadow-glow-primary {
-  box-shadow: 0 0 25px rgba(232, 83, 30, 0.4);
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
 }
 
 .shadow-card-soft {
