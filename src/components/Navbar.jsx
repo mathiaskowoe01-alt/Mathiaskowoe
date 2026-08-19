@@ -101,7 +101,7 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
             className="btn-magnetic inline-flex items-center justify-center gap-2 rounded-full bg-brand-dark px-5 md:px-6 py-2.5 text-xs md:text-sm font-bold text-white shadow-lg transition-all hover:bg-brand-primary hover:shadow-glow-primary active:scale-95"
           >
             <Sparkles className="h-4 w-4 text-brand-primary animate-pulse" />
-            <span>Demander un devis</span>
+            <span>Me contacter</span>
           </button>
         </div>
 
@@ -111,7 +111,7 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
             onClick={onOpenDevis}
             className="rounded-full bg-brand-primary px-4 py-2 text-xs font-bold text-white shadow-sm sm:hidden"
           >
-            Devis
+            Contact
           </button>
 
           <button
@@ -166,7 +166,7 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
                 className="flex items-center justify-center gap-2 rounded-2xl bg-brand-primary py-3.5 text-sm font-bold text-white shadow-lg"
               >
                 <Sparkles className="h-4 w-4" />
-                <span>Lancer un projet / Devis gratuit</span>
+                <span>Me contacter</span>
               </button>
             </div>
           </div>
