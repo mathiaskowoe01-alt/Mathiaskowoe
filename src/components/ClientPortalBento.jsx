@@ -1,274 +1,287 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
-  ShieldCheck, 
-  Activity, 
-  MessageSquare, 
+  AppWindow, 
+  Eye, 
   FileText, 
-  CheckCircle2, 
-  Sparkles, 
-  Play, 
-  Clock, 
-  ArrowRight,
-  Pin,
-  Lock,
-  Layers
+  MessageSquare, 
+  Send, 
+  Check, 
+  Monitor, 
+  Smartphone, 
+  Tablet,
+  Play
 } from 'lucide-react';
-import { siteData } from '../data/siteData';
 
 export default function ClientPortalBento({ onOpenSandbox }) {
-  const [activeTab, setActiveTab] = useState('feed');
-  const [pinnedNote, setPinnedNote] = useState('Agrandir le bouton CTA et passer le fond en sombre');
-
-  const activityFeed = [
-    { title: "Progression globale : 78%", time: "Il y a 3 min", color: "bg-emerald-500", type: "system" },
-    { title: "Maquette V2 validée par le client", time: "Il y a 25 min", color: "bg-blue-500", type: "milestone" },
-    { title: "Nouveau commentaire de Mathias", time: "Il y a 1h", color: "bg-brand-primary", type: "chat" },
-    { title: "Contrat électronique signé", time: "Hier", color: "bg-purple-500", type: "contract" },
-    { title: "Preview Staging mise à jour", time: "Hier", color: "bg-emerald-500", type: "preview" },
-    { title: "Charte graphique approuvée", time: "Il y a 2j", color: "bg-amber-500", type: "milestone" },
-    { title: "Acompte de démarrage reçu", time: "Il y a 3j", color: "bg-emerald-500", type: "payment" },
-  ];
-
   return (
     <section id="espace-client" className="py-20 md:py-32 bg-white relative overflow-hidden">
       
-      {/* Background Decorative Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[900px] bg-brand-primary/5 rounded-full blur-[150px] pointer-events-none"></div>
+      {/* Background Decorative Subtle Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] bg-blue-500/5 rounded-full blur-[140px] pointer-events-none"></div>
 
-      <div className="mx-auto max-w-[1240px] px-5 md:px-8 relative z-10">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-primary/20 bg-brand-primary/5 px-4 py-1.5 backdrop-blur-sm mb-5">
-            <span className="h-2 w-2 rounded-full bg-brand-primary animate-pulse"></span>
-            <span className="font-montserrat text-xs font-bold uppercase tracking-[0.15em] text-brand-primary">
-              L'Innovation MathiasDev
-            </span>
+        <div className="text-center max-w-2xl mx-auto mb-14 md:mb-18">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-blue-50/70 px-4 py-1 text-xs font-black uppercase tracking-widest text-[#2563EB] mb-4 shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]"></span>
+            LA SOLUTION
           </div>
 
-          <h2 className="font-nunito text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black text-brand-dark leading-[1.15]">
-            Votre propre <span className="text-brand-primary relative inline-block">
-              Espace Client Dédié
-              <span className="absolute -bottom-1 left-0 h-1 w-full bg-brand-primary/20 rounded-full"></span>
-            </span>
+          <h2 className="font-nunito text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark tracking-tight leading-[1.15]">
+            Découvrez votre <span className="text-[#2563EB]">espace client dédié</span>
           </h2>
 
-          <p className="mt-5 font-montserrat text-base sm:text-lg text-gray-600 leading-relaxed">
-            Fini les incertitudes et les messages perdus. Accédez 24h/24 à un cockpit privé moderne pour suivre chaque étape, tester les previews et valider vos livrables.
+          <p className="mt-4 font-montserrat text-sm sm:text-base text-gray-500 max-w-xl mx-auto leading-relaxed">
+            Un portail d'exception pensé pour votre sérénité : transparent, fluide et sans compromis.
           </p>
-
-          {/* Interactive Trigger Button */}
-          <div className="mt-8 flex justify-center">
-            <button
-              onClick={onOpenSandbox}
-              className="btn-magnetic inline-flex items-center gap-3 rounded-full bg-brand-dark px-7 py-3.5 font-montserrat text-xs sm:text-sm font-bold text-white shadow-xl hover:bg-brand-primary hover:shadow-glow-primary transition-all duration-300"
-            >
-              <Play className="h-4 w-4 fill-brand-primary text-brand-primary" />
-              <span>Tester la démo interactive du portail</span>
-            </button>
-          </div>
         </div>
 
-        {/* Bento Grid Layout (4 Cards) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+        {/* 2x2 Grid of 4 Cards Exactly Matching Reference */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-[1080px] mx-auto">
           
-          {/* Card 1: Live Timeline & Continuous Activity (Large 7 cols) */}
-          <div className="md:col-span-12 lg:col-span-7 rounded-[32px] border border-gray-200/90 bg-[#FAFBFC] p-6 sm:p-8 flex flex-col justify-between shadow-card-soft hover:shadow-card-hover transition-all duration-300 group">
-            
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-2 rounded-xl bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-600">
-                  <Activity className="h-3.5 w-3.5 animate-pulse" />
-                  Flux d'activité en direct
-                </span>
-                <span className="font-mono text-xs text-gray-400 font-semibold">Temps réel • 24/7</span>
+          {/* ================= CARD 1: Espace client dédié ================= */}
+          <div 
+            onClick={onOpenSandbox}
+            className="group cursor-pointer rounded-[32px] sm:rounded-[36px] border border-gray-100/90 bg-white p-6 sm:p-8 flex flex-col justify-between shadow-[0_15px_40px_-15px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300"
+          >
+            {/* Top Visual Mockup */}
+            <div className="rounded-2xl border border-gray-100 bg-[#FAFAFC] p-4 sm:p-5 space-y-2.5 shadow-inner">
+              
+              <div className="flex items-center justify-between rounded-xl bg-white border border-gray-100 px-3.5 py-2.5 text-xs shadow-sm">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0"></span>
+                  <span className="truncate font-montserrat font-medium text-gray-700 text-[11px] sm:text-xs">
+                    Preview en ligne mise à jour
+                  </span>
+                </div>
+                <span className="font-mono text-[10px] font-bold text-gray-400 uppercase shrink-0">3H</span>
               </div>
 
-              <h3 className="mt-4 font-nunito text-2xl font-black text-brand-dark">
-                Timeline & Jalons de validation
-              </h3>
-              <p className="mt-2 font-montserrat text-xs sm:text-sm text-gray-600">
-                Chaque tâche accomplie s'affiche instantanément. Vous savez toujours exactement où en est votre projet.
-              </p>
+              <div className="flex items-center justify-between rounded-xl bg-white border border-gray-100 px-3.5 py-2.5 text-xs shadow-sm">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <span className="h-2 w-2 rounded-full bg-amber-400 shrink-0"></span>
+                  <span className="truncate font-montserrat font-medium text-gray-700 text-[11px] sm:text-xs">
+                    Nouvelle tâche créée
+                  </span>
+                </div>
+                <span className="font-mono text-[10px] font-bold text-gray-400 uppercase shrink-0">5H</span>
+              </div>
+
+              <div className="flex items-center justify-between rounded-xl bg-white border border-gray-100 px-3.5 py-2.5 text-xs shadow-sm">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0"></span>
+                  <span className="truncate font-montserrat font-medium text-gray-700 text-[11px] sm:text-xs">
+                    Contrat signé par le client
+                  </span>
+                </div>
+                <span className="font-mono text-[10px] font-bold text-gray-400 uppercase shrink-0">HIER</span>
+              </div>
+
+              <div className="flex items-center justify-between rounded-xl bg-white/60 border border-gray-100 px-3.5 py-2.5 text-xs">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <span className="h-2 w-2 rounded-full bg-gray-300 shrink-0"></span>
+                  <span className="truncate font-montserrat font-medium text-gray-400 text-[11px] sm:text-xs">
+                    Progression mise à jour : 40%
+                  </span>
+                </div>
+                <span className="font-mono text-[10px] font-bold text-gray-300 uppercase shrink-0">HIER</span>
+              </div>
+
             </div>
 
-            {/* Simulated Live Stream Feed Box */}
-            <div className="mt-6 rounded-2xl border border-gray-200 bg-white p-4 overflow-hidden relative max-h-[220px]">
-              <div className="flex flex-col gap-2.5 animate-scroll-up [animation-play-state:running] group-hover:[animation-play-state:paused]">
-                {activityFeed.concat(activityFeed).map((item, idx) => (
-                  <div 
-                    key={idx} 
-                    className="flex items-center justify-between gap-3 rounded-xl border border-gray-100 bg-slate-50/70 px-4 py-2.5 text-xs transition-colors hover:bg-white hover:shadow-sm"
-                  >
-                    <div className="flex items-center gap-3 min-w-0">
-                      <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${item.color}`}></span>
-                      <span className="truncate font-montserrat font-semibold text-brand-dark">
-                        {item.title}
-                      </span>
-                    </div>
-                    <span className="shrink-0 font-mono text-[11px] text-gray-400">
-                      {item.time}
-                    </span>
+            {/* Bottom Info */}
+            <div className="mt-7">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-50 text-[#2563EB] mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                <AppWindow className="h-5 w-5" />
+              </div>
+              <h3 className="font-nunito text-xl font-bold text-brand-dark">
+                Espace client dédié
+              </h3>
+              <p className="mt-2 font-montserrat text-xs sm:text-sm text-gray-500 leading-relaxed">
+                Suivez votre projet en temps réel depuis votre espace d'accompagnement privilégié.
+              </p>
+            </div>
+          </div>
+
+          {/* ================= CARD 2: Preview en temps réel ================= */}
+          <div 
+            onClick={onOpenSandbox}
+            className="group cursor-pointer rounded-[32px] sm:rounded-[36px] border border-gray-100/90 bg-white p-6 sm:p-8 flex flex-col justify-between shadow-[0_15px_40px_-15px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300"
+          >
+            {/* Top Visual Mockup */}
+            <div className="rounded-2xl border border-gray-100 bg-[#FAFAFC] p-6 flex flex-col items-center justify-center min-h-[196px] relative shadow-inner overflow-hidden">
+              
+              {/* Central Glowing Code Block Icon */}
+              <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-tr from-[#2563EB] to-blue-400 text-white font-mono text-lg font-bold shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform">
+                &lt; &gt;
+              </div>
+
+              {/* Connecting Radiation Glow */}
+              <div className="w-24 h-6 bg-gradient-to-b from-blue-400/20 to-transparent blur-sm"></div>
+
+              {/* Device Wireframes Silhouettes */}
+              <div className="mt-2 flex items-center gap-6 text-gray-400">
+                <div className="flex flex-col items-center gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+                  <Monitor className="h-6 w-6" />
+                </div>
+                <div className="flex flex-col items-center gap-1 opacity-90 group-hover:opacity-100 transition-opacity text-[#2563EB]">
+                  <Smartphone className="h-6 w-6" />
+                </div>
+                <div className="flex flex-col items-center gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+                  <Tablet className="h-6 w-6" />
+                </div>
+              </div>
+
+            </div>
+
+            {/* Bottom Info */}
+            <div className="mt-7">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-50 text-[#2563EB] mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                <Eye className="h-5 w-5" />
+              </div>
+              <h3 className="font-nunito text-xl font-bold text-brand-dark">
+                Preview en temps réel
+              </h3>
+              <p className="mt-2 font-montserrat text-xs sm:text-sm text-gray-500 leading-relaxed">
+                Visualisez l'évolution de votre plateforme à chaque étape stratégique.
+              </p>
+            </div>
+          </div>
+
+          {/* ================= CARD 3: Contrat en ligne ================= */}
+          <div 
+            onClick={onOpenSandbox}
+            className="group cursor-pointer rounded-[32px] sm:rounded-[36px] border border-gray-100/90 bg-white p-6 sm:p-8 flex flex-col justify-between shadow-[0_15px_40px_-15px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300"
+          >
+            {/* Top Visual Mockup */}
+            <div className="rounded-2xl border border-gray-100 bg-[#FAFAFC] p-6 flex items-center justify-center min-h-[196px] shadow-inner">
+              
+              <div className="flex items-center justify-between w-full max-w-[320px]">
+                
+                {/* Step 1: Envoyé */}
+                <div className="flex flex-col items-center gap-2">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-[#2563EB] to-blue-400 text-white shadow-md shadow-blue-500/25">
+                    <Send className="h-5 w-5" />
                   </div>
-                ))}
+                  <span className="font-montserrat text-[10px] font-black tracking-widest text-gray-800 uppercase">
+                    ENVOYÉ
+                  </span>
+                </div>
+
+                {/* Divider Line */}
+                <div className="h-[2px] flex-1 bg-gray-200 mx-2 -mt-4"></div>
+
+                {/* Step 2: Lu */}
+                <div className="flex flex-col items-center gap-2">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-400 shadow-sm">
+                    <Eye className="h-4 w-4" />
+                  </div>
+                  <span className="font-montserrat text-[10px] font-bold tracking-widest text-gray-400 uppercase">
+                    LU
+                  </span>
+                </div>
+
+                {/* Divider Line */}
+                <div className="h-[2px] flex-1 bg-gray-200 mx-2 -mt-4"></div>
+
+                {/* Step 3: Signé */}
+                <div className="flex flex-col items-center gap-2">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-400 shadow-sm">
+                    <Check className="h-4 w-4" />
+                  </div>
+                  <span className="font-montserrat text-[10px] font-bold tracking-widest text-gray-400 uppercase">
+                    SIGNÉ
+                  </span>
+                </div>
+
               </div>
+
             </div>
 
-            <div className="mt-6 pt-4 border-t border-gray-200/70 flex items-center justify-between text-xs text-gray-500">
-              <span className="flex items-center gap-1.5 font-bold text-brand-dark">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                Notification email & WhatsApp à chaque mise à jour
-              </span>
-            </div>
-
-          </div>
-
-          {/* Card 2: Visual Pin Feedback (5 cols - Light Theme) */}
-          <div className="md:col-span-12 lg:col-span-5 rounded-[32px] border border-gray-200/90 bg-[#FAFBFC] text-brand-dark p-6 sm:p-8 flex flex-col justify-between shadow-card-soft hover:shadow-card-hover transition-all duration-300 group">
-            
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 rounded-xl bg-brand-primary/10 px-3 py-1 text-xs font-bold text-brand-primary">
-                  <Pin className="h-3.5 w-3.5" />
-                  Feedbacks Visuels
-                </span>
-                <span className="text-[11px] font-mono text-gray-400">Zéro confusion</span>
+            {/* Bottom Info */}
+            <div className="mt-7">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-50 text-[#2563EB] mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                <FileText className="h-5 w-5" />
               </div>
-
-              <h3 className="mt-4 font-nunito text-2xl font-black text-brand-dark">
-                Commentez directement sur les écrans
+              <h3 className="font-nunito text-xl font-bold text-brand-dark">
+                Contrat en ligne
               </h3>
-              <p className="mt-2 font-montserrat text-xs sm:text-sm text-gray-600">
-                Cliquez n'importe où sur une maquette pour déposer votre remarque avec photo ou texte.
+              <p className="mt-2 font-montserrat text-xs sm:text-sm text-gray-500 leading-relaxed">
+                Apposition de signature électronique sécurisée pour lancer votre projet sans délai.
               </p>
             </div>
+          </div>
 
-            {/* Interactive Mockup Pin Demo */}
-            <div className="mt-6 rounded-2xl border border-gray-200 bg-gray-100/70 p-4 relative">
-              <div className="rounded-lg bg-white border border-gray-200/80 p-3 flex items-center justify-between text-xs shadow-sm">
-                <span className="font-mono text-gray-700 font-medium">Écran : Page_Accueil_V2.fig</span>
-                <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-              </div>
-
-              {/* Simulated Pin Dot */}
-              <div className="mt-3 relative h-20 rounded-lg bg-white border border-gray-200 flex items-center justify-center p-3 shadow-inner">
-                <div className="absolute top-2 left-6 flex items-center gap-2 animate-bounce">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-primary text-white font-bold text-[10px] shadow-md">
-                    1
+          {/* ================= CARD 4: Feedback instantané ================= */}
+          <div 
+            onClick={onOpenSandbox}
+            className="group cursor-pointer rounded-[32px] sm:rounded-[36px] border border-gray-100/90 bg-white p-6 sm:p-8 flex flex-col justify-between shadow-[0_15px_40px_-15px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300"
+          >
+            {/* Top Visual Mockup */}
+            <div className="rounded-2xl border border-gray-100 bg-[#FAFAFC] p-4 sm:p-5 flex flex-col justify-between min-h-[196px] shadow-inner">
+              
+              {/* Header Status */}
+              <div className="flex items-center gap-2.5 pb-2 border-b border-gray-100">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2563EB] text-white font-bold text-[11px] font-montserrat">
+                  M
+                </div>
+                <div>
+                  <div className="font-montserrat text-xs font-bold text-gray-800">Mathias • Studio</div>
+                  <div className="flex items-center gap-1 font-montserrat text-[9px] font-black text-emerald-600 tracking-wider uppercase">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                    EN LIGNE
                   </div>
                 </div>
-
-                <p className="text-[11px] text-gray-700 font-montserrat italic text-center max-w-[260px] font-medium">
-                  « {pinnedNote} »
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-gray-200/70 flex items-center justify-between text-xs text-gray-500">
-              <span>Appliqué et résolu sous 24h</span>
-              <span className="text-brand-primary font-bold">100% traçabilité</span>
-            </div>
-
-          </div>
-
-          {/* Card 3: Digital Contract & Vault (5 cols) */}
-          <div className="md:col-span-12 lg:col-span-5 rounded-[32px] border border-gray-200/90 bg-[#FAFBFC] p-6 sm:p-8 flex flex-col justify-between shadow-card-soft hover:shadow-card-hover transition-all duration-300">
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 rounded-xl bg-purple-500/10 px-3 py-1 text-xs font-bold text-purple-600">
-                  <Lock className="h-3.5 w-3.5" />
-                  Coffre-fort Sécurisé
-                </span>
-                <span className="text-[11px] font-mono text-gray-400">Archivage illimité</span>
               </div>
 
-              <h3 className="mt-4 font-nunito text-2xl font-black text-brand-dark">
-                Contrat & Factures en 1 clic
+              {/* Chat Messages Preview */}
+              <div className="space-y-2.5 my-1">
+                
+                {/* Client bubble */}
+                <div className="rounded-2xl bg-white border border-gray-200/80 px-4 py-2 text-[11px] sm:text-xs font-medium text-gray-700 shadow-sm w-fit max-w-[85%]">
+                  Ajoute une section témoignages
+                </div>
+
+                {/* Mathias reply bubble */}
+                <div className="rounded-2xl bg-[#2563EB] text-white px-4 py-2 text-[11px] sm:text-xs font-bold shadow-md ml-auto w-fit max-w-[85%] flex items-center gap-1.5">
+                  <span>Ajoutée ! Validée ?</span>
+                  <Check className="h-3.5 w-3.5" />
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Bottom Info */}
+            <div className="mt-7">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-50 text-[#2563EB] mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                <MessageSquare className="h-5 w-5" />
+              </div>
+              <h3 className="font-nunito text-xl font-bold text-brand-dark">
+                Feedback instantané
               </h3>
-              <p className="mt-2 font-montserrat text-xs sm:text-sm text-gray-600">
-                Signature électronique sécurisée, devis validés et téléchargement de vos livrables finaux.
+              <p className="mt-2 font-montserrat text-xs sm:text-sm text-gray-500 leading-relaxed">
+                Un canal de communication direct pour des ajustements précis et une réactivité maximale.
               </p>
             </div>
-
-            <div className="mt-6 space-y-2.5">
-              <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-3 text-xs">
-                <div className="flex items-center gap-2.5">
-                  <FileText className="h-4 w-4 text-purple-600" />
-                  <span className="font-semibold text-brand-dark">Contrat_Prestation_Signe.pdf</span>
-                </div>
-                <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-700">Validé</span>
-              </div>
-
-              <div className="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-3 text-xs">
-                <div className="flex items-center gap-2.5">
-                  <FileText className="h-4 w-4 text-blue-600" />
-                  <span className="font-semibold text-brand-dark">Facture_Acompte_Acquittee.pdf</span>
-                </div>
-                <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-bold text-blue-700">Payé</span>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between text-xs text-gray-500">
-              <span className="font-semibold text-brand-dark">Protection juridique complète</span>
-              <ShieldCheck className="h-4 w-4 text-purple-600" />
-            </div>
           </div>
 
-          {/* Card 4: Staging Preview & Live Test Sandbox (7 cols) */}
-          <div className="md:col-span-12 lg:col-span-7 rounded-[32px] border border-gray-200/90 bg-gradient-to-br from-white to-blue-50/40 p-6 sm:p-8 flex flex-col justify-between shadow-card-soft hover:shadow-card-hover transition-all duration-300">
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 rounded-xl bg-brand-primary/10 px-3 py-1 text-xs font-bold text-brand-primary">
-                  <Layers className="h-3.5 w-3.5" />
-                  Environnement de Staging
-                </span>
-                <span className="text-[11px] font-mono text-gray-400">Sous-domaine privé</span>
-              </div>
+        </div>
 
-              <h3 className="mt-4 font-nunito text-2xl font-black text-brand-dark">
-                Testez votre site sur mobile & desktop avant mise en ligne
-              </h3>
-              <p className="mt-2 font-montserrat text-xs sm:text-sm text-gray-600">
-                Vous recevez une URL secrète pour naviguer, tester les boutons, passer des commandes tests et valider l'expérience utilisateur.
-              </p>
-            </div>
-
-            {/* Mini Staging Browser Frame */}
-            <div className="mt-6 rounded-2xl border border-gray-300/80 bg-white shadow-md overflow-hidden">
-              <div className="bg-gray-100 px-4 py-2 flex items-center gap-2 border-b border-gray-200">
-                <div className="flex gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-red-400"></span>
-                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
-                  <span className="h-2.5 w-2.5 rounded-full bg-green-400"></span>
-                </div>
-                <div className="mx-auto rounded-md bg-white px-4 py-0.5 text-[11px] font-mono text-gray-500 border border-gray-200">
-                  https://preview.votre-entreprise.staging-mathias.dev
-                </div>
-              </div>
-
-              <div className="p-4 flex items-center justify-between text-xs">
-                <div className="flex items-center gap-3">
-                  <span className="h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span className="font-bold text-brand-dark">Version V2.4 en ligne</span>
-                </div>
-                <button 
-                  onClick={onOpenSandbox}
-                  className="rounded-lg bg-brand-dark px-3 py-1.5 text-xs font-bold text-white hover:bg-brand-primary transition-colors"
-                >
-                  Ouvrir le Sandbox
-                </button>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-gray-200/70 flex items-center justify-between text-xs text-gray-500">
-              <span className="font-semibold text-brand-dark">Zéro coupure lors de la bascule en production</span>
-              <Sparkles className="h-4 w-4 text-brand-primary" />
-            </div>
-          </div>
-
+        {/* Sandbox Test CTA under the grid */}
+        <div className="mt-12 text-center">
+          <button
+            onClick={onOpenSandbox}
+            className="btn-magnetic inline-flex items-center gap-2.5 rounded-full bg-brand-dark px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg hover:bg-[#2563EB] hover:shadow-glow-primary transition-all duration-300"
+          >
+            <Play className="h-4 w-4 fill-current text-[#2563EB] group-hover:text-white" />
+            <span>Tester la démo interactive du portail client</span>
+          </button>
         </div>
 
       </div>
+
     </section>
   );
 }
