@@ -7,7 +7,7 @@ export default function PortfolioSection({ onOpenDevis }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeProjectModal, setActiveProjectModal] = useState(null);
 
-  const tags = ['Tous', 'E-Learning', 'SaaS / Web App', 'Fintech', 'Immobilier & Luxe', 'Gestion & Facturation'];
+  const tags = ['Tous', 'Branding & Web', 'E-Learning', 'SaaS / Web App', 'Fintech', 'Immobilier & Luxe', 'Gestion & Facturation'];
 
   const filteredProjects = siteData.projects.filter((p) => {
     const matchesTag = selectedTag === 'Tous' || p.tag === selectedTag;
@@ -143,6 +143,36 @@ export default function PortfolioSection({ onOpenDevis }) {
             </button>
           </div>
         )}
+
+        {/* Competences & Stack Technique Grid from CV */}
+        <div className="mt-20 pt-16 border-t border-gray-100">
+          <div className="text-center max-w-xl mx-auto mb-10">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#2563EB]">
+              EXPERTISE & STACK TECHNIQUE
+            </span>
+            <h3 className="mt-2 font-nunito text-2xl sm:text-3xl font-black text-brand-dark">
+              Des technologies modernes pour des projets pérennes
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {siteData.skills.map((sk, idx) => (
+              <div key={idx} className="rounded-2xl border border-gray-200/80 bg-[#FAFAFC] p-5 shadow-sm hover:shadow-md transition-all">
+                <h4 className="font-nunito text-sm font-bold text-brand-dark mb-3 flex items-center justify-between">
+                  <span>{sk.category}</span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]"></span>
+                </h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {sk.items.map((item, i) => (
+                    <span key={i} className="rounded-lg bg-white border border-gray-200/70 px-2.5 py-1 text-xs font-medium text-gray-700 shadow-2xs">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
       </div>
 
