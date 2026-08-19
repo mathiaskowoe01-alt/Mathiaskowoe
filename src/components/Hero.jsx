@@ -6,16 +6,16 @@ import { siteData } from '../data/siteData';
 export default function Hero({ onOpenDevis, onOpenSandbox }) {
   return (
     <section id="hero" className="relative mx-auto w-full max-w-[1280px] px-4 pt-24 pb-8 md:pt-28 md:px-6">
-      
+
       {/* Massive Rounded Hero Card */}
       <div className="relative mx-auto min-h-[640px] lg:min-h-[720px] w-full overflow-hidden rounded-[32px] md:rounded-[44px] border-[8px] md:border-[12px] border-brand-primary/10 bg-[#12131C] shadow-2xl">
-        
+
         {/* Background Visual Effects & Gradients */}
         <div className="absolute -left-28 -top-28 h-[520px] w-[520px] rounded-full bg-brand-primary/25 blur-[130px] pointer-events-none"></div>
         <div className="absolute right-0 bottom-0 h-[450px] w-[450px] rounded-full bg-blue-600/15 blur-[140px] pointer-events-none"></div>
-        
+
         {/* Subtle grid pattern */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.07] pointer-events-none"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, #FFFFFF 1px, transparent 0)`,
@@ -25,12 +25,12 @@ export default function Hero({ onOpenDevis, onOpenSandbox }) {
 
         {/* Content Layout */}
         <div className="relative z-10 flex flex-col justify-between h-full p-6 sm:p-10 md:p-14 lg:p-16 text-white">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+
             {/* Left Column: Headlines & CTA */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              
+
               {/* Profile Pill Badge */}
               <div className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-md w-fit shadow-sm">
                 <span className="flex h-2 w-2 rounded-full bg-brand-primary animate-ping"></span>
@@ -92,7 +92,7 @@ export default function Hero({ onOpenDevis, onOpenSandbox }) {
 
             {/* Right Column: Mission Card & Verified Client Proof */}
             <div className="lg:col-span-5 flex flex-col gap-6 lg:pl-6">
-              
+
               {/* Mission Statement Box */}
               <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-6 sm:p-7 backdrop-blur-xl shadow-2xl">
                 <div className="flex items-center gap-2 font-montserrat text-xs font-bold uppercase tracking-widest text-brand-primary">
@@ -111,9 +111,9 @@ export default function Hero({ onOpenDevis, onOpenSandbox }) {
               <div className="rounded-3xl border border-white/10 bg-white/90 p-5 sm:p-6 text-brand-dark shadow-2xl backdrop-blur-md">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <img 
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
-                      alt="Armel D." 
+                    <img
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                      alt="Armel D."
                       className="h-11 w-11 rounded-full object-cover border-2 border-brand-primary"
                     />
                     <div>
@@ -131,7 +131,7 @@ export default function Hero({ onOpenDevis, onOpenSandbox }) {
                 <p className="mt-3.5 font-montserrat text-xs sm:text-[13px] italic leading-relaxed text-gray-700">
                   « Le portail client change tout : on suit l'avancée sans relancer, les livrables sont impeccables. Notre chiffre d'affaires a explosé dès la première semaine. »
                 </p>
-                
+
                 <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500 font-medium">
                   <span className="text-emerald-600 font-bold">● Projet livré en 14 jours</span>
                   <span>+180% de conversions</span>
@@ -144,7 +144,7 @@ export default function Hero({ onOpenDevis, onOpenSandbox }) {
 
           {/* Bottom Bar: Stats Grid & Social Links */}
           <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-            
+
             {/* Stats Badges */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full md:w-auto">
               {siteData.stats.map((st, i) => (
