@@ -17,10 +17,10 @@ export const siteData = {
     whatsappUrl: "https://wa.me/2290157307677?text=Bonjour%20Mathias%2C%20j%27ai%20un%20projet%20%C3%A0%20discuter.",
     location: "Cotonou, Bénin • Rayonnement International",
     socials: {
-      linkedin: "https://linkedin.com/in/mathias",
-      facebook: "https://facebook.com/mathias",
-      instagram: "https://instagram.com/mathias",
-      github: "https://github.com/mathias",
+      linkedin: "https://bj.linkedin.com/in/mathias-kowoe-b490212a8",
+      facebook: "https://www.facebook.com/share/1bS5KfNeTs/?mibextid=wwXIfr",
+      instagram: "https://instagram.com/mathiaskowoe",
+      github: "https://github.com/mathiaskowoe01-alt",
     }
   },
 
