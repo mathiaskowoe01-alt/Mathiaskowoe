@@ -5,6 +5,8 @@ import ClientPortalBento from './components/ClientPortalBento';
 import ServicesSection from './components/ServicesSection';
 import TechStackSection from './components/TechStackSection';
 import PortfolioSection from './components/PortfolioSection';
+import ResourcesSection from './components/ResourcesSection';
+import BlogSection from './components/BlogSection';
 import ProcessSection from './components/ProcessSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
@@ -36,7 +38,7 @@ export default function App() {
         onOpenSandbox={handleOpenSandbox} 
       />
 
-      {/* Main Page Sections Ordered Exactly as Requested */}
+      {/* Main Page Sections */}
       <main className="flex-grow">
         {/* 1. Hero Section */}
         <Hero 
@@ -61,16 +63,22 @@ export default function App() {
         <PortfolioSection 
           onOpenDevis={() => handleOpenDevis()} 
         />
+
+        {/* 6. Ressources Gratuit (NEW) */}
+        <ResourcesSection />
+
+        {/* 7. Blog & Articles (NEW) */}
+        <BlogSection />
         
         {/* Processus */}
         <ProcessSection 
           onOpenDevis={() => handleOpenDevis()} 
         />
         
-        {/* 6. Témoignages */}
+        {/* 8. Témoignages */}
         <TestimonialsSection />
         
-        {/* 7. FAQ */}
+        {/* 9. FAQ */}
         <FAQSection 
           onOpenDevis={() => handleOpenDevis()} 
         />

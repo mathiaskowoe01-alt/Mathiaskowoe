@@ -15,7 +15,7 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
         setScrolled(false);
       }
 
-      const sections = ['hero', 'espace-client', 'services', 'technologies', 'portfolio', 'processus', 'temoignages', 'faq'];
+      const sections = ['hero', 'espace-client', 'services', 'technologies', 'portfolio', 'ressources', 'blog', 'processus', 'temoignages', 'faq'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -39,6 +39,8 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
     { name: 'Accueil', href: '#hero', id: 'hero' },
     { name: 'Services', href: '#services', id: 'services' },
     { name: 'Portfolio', href: '#portfolio', id: 'portfolio' },
+    { name: 'Ressources', href: '#ressources', id: 'ressources' },
+    { name: 'Blog', href: '#blog', id: 'blog' },
     { name: 'Témoignages', href: '#temoignages', id: 'temoignages' },
     { name: 'FAQ', href: '#faq', id: 'faq' },
   ];
