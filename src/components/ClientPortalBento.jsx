@@ -292,11 +292,11 @@ export default function ClientPortalBento({ onOpenSandbox }) {
             onClick={onOpenSandbox}
             className="group cursor-pointer rounded-[32px] sm:rounded-[36px] border border-gray-100/90 bg-white p-6 sm:p-8 flex flex-col justify-between shadow-[0_15px_40px_-15px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300"
           >
-            {/* Top Visual Mockup */}
-            <div className="rounded-2xl border border-gray-100 bg-[#FAFAFC] p-4 sm:p-5 flex flex-col justify-between min-h-[196px] shadow-inner">
+            {/* Top Visual Mockup with Vertical Auto-Scroll Chat (Bas vers le Haut) */}
+            <div className="rounded-2xl border border-gray-100 bg-[#FAFAFC] p-4 sm:p-5 flex flex-col justify-between h-[205px] overflow-hidden relative group/chatvtrack shadow-inner">
               
               {/* Header Status */}
-              <div className="flex items-center gap-2.5 pb-2 border-b border-gray-100">
+              <div className="flex items-center gap-2.5 pb-2 border-b border-gray-100 relative z-20 bg-[#FAFAFC]">
                 <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2563EB] text-white font-bold text-[11px] font-montserrat">
                   M
                 </div>
@@ -309,29 +309,39 @@ export default function ClientPortalBento({ onOpenSandbox }) {
                 </div>
               </div>
 
-              {/* Live Animated Chat Messages Preview */}
-              <div className="space-y-2.5 my-1 min-h-[90px] flex flex-col justify-center">
-                
-                {/* Client bubble */}
-                <div className="rounded-2xl bg-white border border-gray-200/80 px-4 py-2 text-[11px] sm:text-xs font-medium text-gray-700 shadow-sm w-fit max-w-[85%] animate-in fade-in duration-300">
-                  Ajoute une section témoignages
-                </div>
+              {/* Fade Gradient Masks for Smooth Top & Bottom Clipping */}
+              <div className="absolute top-[48px] left-0 right-0 h-4 bg-gradient-to-b from-[#FAFAFC] to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-[#FAFAFC] to-transparent z-10 pointer-events-none"></div>
 
-                {/* Typing Indicator / Reply */}
-                {chatStage === 2 && (
-                  <div className="rounded-2xl bg-[#2563EB]/10 text-[#2563EB] px-3.5 py-1.5 text-[11px] font-bold shadow-xs ml-auto w-fit flex items-center gap-1.5 animate-pulse">
-                    <span className="text-[10px]">Mathias écrit...</span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB] animate-bounce"></span>
+              {/* Live Vertical Auto-Scroll Animated Chat Stream */}
+              <div className="space-y-2.5 animate-scroll-up group-hover/chatvtrack:[animation-play-state:paused] pt-2 pb-1 relative z-0">
+                {[
+                  { text: 'Ajoute une section témoignages', isClient: true },
+                  { text: 'Bien reçu ! Section ajoutée et en ligne. ⚡', isClient: false },
+                  { text: 'Pouvez-vous ajouter le paiement Mobile Money ?', isClient: true },
+                  { text: 'C\'est 100% fonctionnel avec FedaPay & MoMo ! 💳', isClient: false },
+                  { text: 'Les maquettes Figma sont parfaites !', isClient: true },
+                  { text: 'Merci ! Déploiement Next.js en cours. 🚀', isClient: false },
+                  
+                  // Duplicated array for seamless 100% infinite vertical loop
+                  { text: 'Ajoute une section témoignages', isClient: true },
+                  { text: 'Bien reçu ! Section ajoutée et en ligne. ⚡', isClient: false },
+                  { text: 'Pouvez-vous ajouter le paiement Mobile Money ?', isClient: true },
+                  { text: 'C\'est 100% fonctionnel avec FedaPay & MoMo ! 💳', isClient: false },
+                  { text: 'Les maquettes Figma sont parfaites !', isClient: true },
+                  { text: 'Merci ! Déploiement Next.js en cours. 🚀', isClient: false }
+                ].map((msg, mIdx) => (
+                  <div 
+                    key={mIdx}
+                    className={`rounded-2xl px-3.5 py-2 text-[11px] font-medium shadow-xs max-w-[85%] transition-transform hover:scale-[1.02] ${
+                      msg.isClient 
+                        ? 'bg-white border border-gray-200/80 text-gray-700 w-fit' 
+                        : 'bg-[#2563EB] text-white font-semibold ml-auto w-fit shadow-md'
+                    }`}
+                  >
+                    {msg.text}
                   </div>
-                )}
-
-                {chatStage === 3 && (
-                  <div className="rounded-2xl bg-[#2563EB] text-white px-4 py-2 text-[11px] sm:text-xs font-bold shadow-md ml-auto w-fit max-w-[85%] flex items-center gap-1.5 animate-in slide-in-from-bottom-2 duration-300">
-                    <span>Ajoutée ! Validée ?</span>
-                    <Check className="h-3.5 w-3.5 text-white" />
-                  </div>
-                )}
-
+                ))}
               </div>
 
             </div>
