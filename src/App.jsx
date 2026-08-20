@@ -5,8 +5,11 @@ import ClientPortalBento from './components/ClientPortalBento';
 import ServicesSection from './components/ServicesSection';
 import TechStackSection from './components/TechStackSection';
 import PortfolioSection from './components/PortfolioSection';
+import FullPortfolioView from './components/FullPortfolioView';
 import ResourcesSection from './components/ResourcesSection';
 import BlogSection from './components/BlogSection';
+import FullBlogView from './components/FullBlogView';
+import AdminDashboardView from './components/AdminDashboardView';
 import ProcessSection from './components/ProcessSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
@@ -18,6 +21,9 @@ import FloatingWidgets from './components/FloatingWidgets';
 export default function App() {
   const [isDevisModalOpen, setIsDevisModalOpen] = useState(false);
   const [isSandboxModalOpen, setIsSandboxModalOpen] = useState(false);
+  const [isFullPortfolioOpen, setIsFullPortfolioOpen] = useState(false);
+  const [isFullBlogOpen, setIsFullBlogOpen] = useState(false);
+  const [isAdminDashboardOpen, setIsAdminDashboardOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('landing-page');
 
   const handleOpenDevis = (serviceId = 'landing-page') => {
@@ -27,6 +33,18 @@ export default function App() {
 
   const handleOpenSandbox = () => {
     setIsSandboxModalOpen(true);
+  };
+
+  const handleOpenFullPortfolio = () => {
+    setIsFullPortfolioOpen(true);
+  };
+
+  const handleOpenFullBlog = () => {
+    setIsFullBlogOpen(true);
+  };
+
+  const handleOpenAdmin = () => {
+    setIsAdminDashboardOpen(true);
   };
 
   return (
@@ -62,13 +80,16 @@ export default function App() {
         {/* 5. Portfolio */}
         <PortfolioSection 
           onOpenDevis={() => handleOpenDevis()} 
+          onOpenFullPortfolio={handleOpenFullPortfolio}
         />
 
-        {/* 6. Ressources Gratuit (NEW) */}
+        {/* 6. Ressources Gratuit */}
         <ResourcesSection />
 
-        {/* 7. Blog & Articles (NEW) */}
-        <BlogSection />
+        {/* 7. Blog & Articles */}
+        <BlogSection 
+          onOpenFullBlog={handleOpenFullBlog}
+        />
         
         {/* Processus */}
         <ProcessSection 
@@ -88,6 +109,27 @@ export default function App() {
       <Footer 
         onOpenDevis={() => handleOpenDevis()} 
         onOpenSandbox={handleOpenSandbox} 
+        onOpenAdmin={handleOpenAdmin}
+      />
+
+      {/* Dedicated Admin Cockpit View */}
+      <AdminDashboardView
+        isOpen={isAdminDashboardOpen}
+        onClose={() => setIsAdminDashboardOpen(false)}
+      />
+
+      {/* Dedicated Full Portfolio Showcase Page (Mes Réalisations) */}
+      <FullPortfolioView
+        isOpen={isFullPortfolioOpen}
+        onClose={() => setIsFullPortfolioOpen(false)}
+        onOpenDevis={() => handleOpenDevis()}
+      />
+
+      {/* Dedicated Full Blog Showcase Page (Nos Articles) */}
+      <FullBlogView
+        isOpen={isFullBlogOpen}
+        onClose={() => setIsFullBlogOpen(false)}
+        onOpenDevis={() => handleOpenDevis()}
       />
 
       {/* Interactive 7-Step Devis Funnel Modal */}

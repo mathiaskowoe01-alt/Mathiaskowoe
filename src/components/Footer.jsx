@@ -3,7 +3,7 @@ import { Phone, Mail, MessageSquare, ArrowUpRight } from 'lucide-react';
 import { LinkedInIcon, FacebookIcon, InstagramIcon } from './SocialIcons';
 import { siteData } from '../data/siteData';
 
-export default function Footer({ onOpenDevis, onOpenSandbox }) {
+export default function Footer({ onOpenDevis, onOpenSandbox, onOpenAdmin }) {
   return (
     <footer className="relative overflow-hidden bg-white pt-20 border-t border-gray-200">
       <div className="mx-auto max-w-[1240px] px-5 md:px-8">
@@ -72,19 +72,16 @@ export default function Footer({ onOpenDevis, onOpenSandbox }) {
                 <a href="#hero" className="text-gray-500 hover:text-brand-primary transition-colors">Accueil</a>
               </li>
               <li>
-                <a href="#probleme" className="text-gray-500 hover:text-brand-primary transition-colors">Le Problème</a>
+                <a href="#services" className="text-gray-500 hover:text-brand-primary transition-colors">Services</a>
               </li>
               <li>
-                <a href="#espace-client" className="text-gray-500 hover:text-brand-primary transition-colors">Espace Client Dédié</a>
+                <a href="#blog" className="text-gray-500 hover:text-brand-primary transition-colors">Blog</a>
               </li>
               <li>
-                <a href="#services" className="text-gray-500 hover:text-brand-primary transition-colors">Packs & Services</a>
+                <a href="#portfolio" className="text-gray-500 hover:text-brand-primary transition-colors">Portfolio</a>
               </li>
               <li>
-                <a href="#portfolio" className="text-gray-500 hover:text-brand-primary transition-colors">Portfolio & Études</a>
-              </li>
-              <li>
-                <a href="#faq" className="text-gray-500 hover:text-brand-primary transition-colors">Questions Fréquentes</a>
+                <a href="#ressources" className="text-gray-500 hover:text-brand-primary transition-colors">Ressources</a>
               </li>
             </ul>
           </div>
@@ -123,14 +120,6 @@ export default function Footer({ onOpenDevis, onOpenSandbox }) {
                   <span>{siteData.profile.email}</span>
                 </a>
               </li>
-              <li>
-                <a href={siteData.profile.whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-brand-primary transition-colors group">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                    <MessageSquare className="h-3.5 w-3.5" />
-                  </span>
-                  <span>Discuter sur WhatsApp</span>
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -155,7 +144,12 @@ export default function Footer({ onOpenDevis, onOpenSandbox }) {
           <div className="flex items-center gap-6">
             <span className="hover:text-brand-primary cursor-pointer">Mentions légales</span>
             <span className="hover:text-brand-primary cursor-pointer">Confidentialité</span>
-            <span className="hover:text-brand-primary cursor-pointer">Conditions de prestation</span>
+            <button 
+              onClick={onOpenAdmin}
+              className="text-[#2563EB] font-bold hover:underline flex items-center gap-1 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100"
+            >
+              <span>Espace Admin ⚙️</span>
+            </button>
           </div>
         </div>
 

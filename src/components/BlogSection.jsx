@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BookOpen, Clock, ArrowUpRight, Sparkles, X, User } from 'lucide-react';
 
-export default function BlogSection() {
+export default function BlogSection({ onOpenFullBlog }) {
   const [activeArticle, setActiveArticle] = useState(null);
 
   const articles = [
@@ -59,15 +59,13 @@ export default function BlogSection() {
             </p>
           </div>
 
-          <a
-            href="https://mon-cv-self.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="self-start sm:self-auto inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-slate-900 hover:bg-gray-50 transition-all shadow-2xs"
+          <button
+            onClick={onOpenFullBlog}
+            className="self-start sm:self-auto inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-slate-900 hover:bg-gray-50 transition-all shadow-2xs group"
           >
             <span>Voir tous les articles</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
+            <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
+          </button>
         </div>
 
         {/* 3 Articles Grid */}

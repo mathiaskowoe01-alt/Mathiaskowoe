@@ -38,11 +38,9 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
   const navLinks = [
     { name: 'Accueil', href: '#hero', id: 'hero' },
     { name: 'Services', href: '#services', id: 'services' },
+    { name: 'Blog', href: '#blog', id: 'blog' },
     { name: 'Portfolio', href: '#portfolio', id: 'portfolio' },
     { name: 'Ressources', href: '#ressources', id: 'ressources' },
-    { name: 'Blog', href: '#blog', id: 'blog' },
-    { name: 'Témoignages', href: '#temoignages', id: 'temoignages' },
-    { name: 'FAQ', href: '#faq', id: 'faq' },
   ];
 
   return (

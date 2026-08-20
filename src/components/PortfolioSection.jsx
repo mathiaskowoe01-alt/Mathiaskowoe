@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
-export default function PortfolioSection({ onOpenDevis }) {
+export default function PortfolioSection({ onOpenDevis, onOpenFullPortfolio }) {
   const openProject = (url) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
@@ -157,17 +157,15 @@ export default function PortfolioSection({ onOpenDevis }) {
           </div>
 
           {/* Top Right Action Button */}
-          <a
-            href="https://mon-cv-self.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={onOpenFullPortfolio}
             className="self-start sm:self-auto inline-flex items-center gap-3 rounded-full border border-gray-200/90 bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-brand-dark hover:border-gray-400 hover:bg-gray-50 transition-all shadow-2xs group"
           >
             <span>Voir tout le portfolio</span>
             <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1A1D27] text-white transition-transform duration-300 group-hover:rotate-45">
               <ArrowUpRight className="h-4 w-4" />
             </div>
-          </a>
+          </button>
         </div>
 
         {/* Large Rounded Container Card (Exact screenshot wrapper) */}
@@ -287,15 +285,13 @@ export default function PortfolioSection({ onOpenDevis }) {
 
         {/* Bottom Center Action Button */}
         <div className="mt-8 flex justify-center">
-          <a
-            href="https://mon-cv-self.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={onOpenFullPortfolio}
             className="inline-flex items-center gap-2.5 rounded-full bg-[#1A1D27] px-8 py-3.5 text-sm font-bold text-white shadow-xl hover:bg-black transition-all duration-300 hover:scale-105"
           >
             <span>Voir tout le portfolio</span>
             <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </button>
         </div>
 
       </div>
