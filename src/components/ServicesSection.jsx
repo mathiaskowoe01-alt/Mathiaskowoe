@@ -1,187 +1,203 @@
-import React, { useState } from 'react';
-import { Check, Clock, Sparkles, ArrowRight, ShieldCheck, Zap, Layers, HelpCircle } from 'lucide-react';
-import { siteData } from '../data/siteData';
+import React from 'react';
+import { ArrowUpRight, ArrowRight, Sparkles, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
 
 export default function ServicesSection({ onSelectService }) {
-  const [currency, setCurrency] = useState('XOF'); // 'XOF' (FCFA) or 'EUR'
-  const [activeCategory, setActiveCategory] = useState('all');
-
-  const categories = [
-    { id: 'all', label: 'Tous les packs' },
-    { id: 'Conversion', label: 'Landing Page' },
-    { id: 'Notoriété & Entreprise', label: 'Site Vitrine' },
-    { id: 'Logiciel & SaaS', label: 'Applications & SaaS' },
-    { id: 'Performance', label: 'Refonte & SEO' },
+  const servicesList = [
+    {
+      id: 'site-vitrine',
+      badge: 'Site vitrine',
+      discount: 'Offre de lancement -35%',
+      bannerTitle: 'REFONTE DE SITE WEB WORDPRESS & REACT',
+      title: 'Refonte de site web',
+      desc: 'Votre site est vieillissant ou ne convertit pas ? Je le transforme en une vitrine moderne, ultra-rapide et optimisée pour Google.',
+      priceText: 'Sur devis',
+      bgGradient: 'from-slate-900 via-slate-950 to-blue-950',
+      badgeColor: 'bg-blue-600 text-white',
+      accentColor: '#2563EB'
+    },
+    {
+      id: 'e-commerce',
+      badge: 'E-commerce',
+      discount: 'Offre de lancement -35%',
+      bannerTitle: 'CRÉATION DE BOUTIQUE EN LIGNE',
+      title: 'Création de boutique en ligne',
+      desc: 'Une boutique e-commerce complète pour vendre vos produits en ligne avec un design captivant et les passerelles MoMo / Stripe...',
+      priceText: 'Sur devis',
+      bgGradient: 'from-[#0B0C10] via-stone-950 to-[#1A100B]',
+      badgeColor: 'bg-amber-600 text-white',
+      accentColor: '#D97706'
+    },
+    {
+      id: 'lms-elearning',
+      badge: 'LMS / E-Learning',
+      discount: 'Offre de lancement -35%',
+      bannerTitle: 'CRÉATION DE SITE DE FORMATION (e-LEARNING)',
+      title: 'Création de plateforme de cours en ligne (LMS)',
+      desc: 'Une plateforme de formation en ligne complète pour héberger, vendre et gérer vos élèves avec vidéos et quiz automatiques...',
+      priceText: 'Sur devis',
+      bgGradient: 'from-[#0A140E] via-emerald-950 to-slate-950',
+      badgeColor: 'bg-emerald-600 text-white',
+      accentColor: '#059669'
+    },
+    {
+      id: 'formation',
+      badge: 'Formation & Coaching',
+      discount: 'Offre de lancement -35%',
+      bannerTitle: 'FORMATION ET ACCOMPAGNEMENT SUR-MESURE',
+      title: 'Accompagnement création de sites',
+      desc: 'Je vous accompagne personnellement pour apprendre à créer des sites web performants, administrer vos contenus et maîtriser vos outils...',
+      priceText: 'Sur devis',
+      bgGradient: 'from-purple-950 via-slate-950 to-indigo-950',
+      badgeColor: 'bg-purple-600 text-white',
+      accentColor: '#9333EA'
+    },
+    {
+      id: 'maintenance',
+      badge: 'Maintenance & Support',
+      discount: 'Offre de lancement -35%',
+      bannerTitle: 'MAINTENANCE ET SÉCURITÉ WEB',
+      title: 'Maintenance et support technique',
+      desc: 'Un forfait de maintenance pour garder votre site à jour, sécurisé et performant — mises à jour, sauvegardes et support réactif...',
+      priceText: 'Sur devis',
+      bgGradient: 'from-[#0B131E] via-slate-950 to-cyan-950',
+      badgeColor: 'bg-cyan-600 text-white',
+      accentColor: '#0891B2'
+    },
+    {
+      id: 'design-branding',
+      badge: 'Design UI/UX',
+      discount: 'Offre de lancement -15%',
+      bannerTitle: 'CRÉATION DE VOTRE LOGO & CHARTE GRAPHIQUE',
+      title: 'Création de logo & identité visuelle',
+      desc: 'Ton logo, c\'est la première chose que tes clients voient. Une charte graphique percutante et mémorable (Figma, Photoshop, Illustrator)...',
+      priceText: 'Sur devis',
+      bgGradient: 'from-rose-950 via-zinc-950 to-slate-950',
+      badgeColor: 'bg-rose-600 text-white',
+      accentColor: '#E11D48'
+    }
   ];
 
-  const filteredServices = activeCategory === 'all' 
-    ? siteData.services 
-    : siteData.services.filter(s => s.category === activeCategory);
-
   return (
-    <section id="services" className="py-20 md:py-32 bg-[#FAFBFC] border-t border-gray-200">
-      <div className="mx-auto max-w-[1240px] px-5 md:px-8">
+    <section id="services" className="py-20 md:py-32 bg-[#FAFBFC] border-t border-gray-200 relative overflow-hidden">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 md:px-8">
         
-        {/* Header & Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+        {/* Section Header Row */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-primary/20 bg-brand-primary/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider text-brand-primary mb-4">
-              <Sparkles className="h-3.5 w-3.5" />
-              Offres Claires & Transparentes
-            </div>
-            <h2 className="font-nunito text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark leading-tight">
-              Des solutions web pensées pour <br className="hidden sm:inline" />
-              <span className="text-brand-primary">maximiser votre chiffre d'affaires.</span>
+            <h2 className="font-nunito text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark leading-[1.15] tracking-tight">
+              Mes <span className="text-[#2563EB]">services</span>
             </h2>
-            <p className="mt-3 font-montserrat text-sm sm:text-base text-gray-600 max-w-xl">
-              Chaque pack inclut votre accès Espace Client, un design sur mesure, un code optimisé et une garantie de suivi.
+            <p className="mt-3 text-gray-500 font-medium text-base sm:text-lg max-w-2xl">
+              Des solutions adaptées à chaque besoin et à chaque budget.
             </p>
           </div>
 
-          {/* Currency Toggle */}
-          <div className="flex items-center self-start md:self-auto rounded-2xl bg-white p-1.5 border border-gray-200 shadow-sm">
-            <button
-              onClick={() => setCurrency('XOF')}
-              className={`rounded-xl px-4 py-2 text-xs font-bold transition-all ${
-                currency === 'XOF' 
-                  ? 'bg-brand-dark text-white shadow-sm' 
-                  : 'text-gray-600 hover:text-brand-dark'
-              }`}
-            >
-              FCFA (XOF)
-            </button>
-            <button
-              onClick={() => setCurrency('EUR')}
-              className={`rounded-xl px-4 py-2 text-xs font-bold transition-all ${
-                currency === 'EUR' 
-                  ? 'bg-brand-dark text-white shadow-sm' 
-                  : 'text-gray-600 hover:text-brand-dark'
-              }`}
-            >
-              Euros (€)
-            </button>
-          </div>
+          {/* Top Right Action Button */}
+          <button
+            onClick={() => onSelectService('sur-mesure')}
+            className="self-start sm:self-auto inline-flex items-center gap-3 rounded-full border border-gray-200/90 bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-brand-dark hover:border-gray-400 hover:bg-gray-50 transition-all shadow-2xs group"
+          >
+            <span>Voir tous mes services</span>
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1A1D27] text-white transition-transform duration-300 group-hover:rotate-45">
+              <ArrowUpRight className="h-4 w-4" />
+            </div>
+          </button>
         </div>
 
-        {/* Category Filter Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 hide-scrollbar">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`shrink-0 rounded-full px-5 py-2 text-xs font-bold transition-all ${
-                activeCategory === cat.id
-                  ? 'bg-brand-primary text-white shadow-glow-sm'
-                  : 'bg-white text-gray-600 border border-gray-200 hover:border-brand-primary/40 hover:text-brand-dark'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-          {filteredServices.map((srv) => (
+        {/* 6 Services Cards Grid (2 Rows of 3 Columns) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {servicesList.map((srv) => (
             <div
               key={srv.id}
-              className="card-lift rounded-[32px] border border-gray-200/90 bg-white p-7 sm:p-9 flex flex-col justify-between shadow-card-soft relative group"
+              onClick={() => onSelectService(srv.id)}
+              className="group cursor-pointer rounded-2xl md:rounded-3xl border border-gray-200/90 bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
-              {/* Badge */}
-              {srv.badge && (
-                <div className="absolute top-6 right-6">
-                  <span className="rounded-full bg-brand-primary/10 border border-brand-primary/20 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-brand-primary">
+              {/* Card Top Visual Banner */}
+              <div className={`relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${srv.bgGradient} p-5 flex flex-col justify-between group-hover:scale-[1.01] transition-transform duration-500`}>
+                
+                {/* Top Category Badge */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-slate-900 shadow-sm">
                     {srv.badge}
                   </span>
-                </div>
-              )}
-
-              <div>
-                {/* Category & Title */}
-                <span className="font-montserrat text-xs font-bold uppercase tracking-widest text-gray-400">
-                  {srv.category}
-                </span>
-                
-                <h3 className="mt-2 font-nunito text-2xl sm:text-3xl font-black text-brand-dark group-hover:text-brand-primary transition-colors">
-                  {srv.title}
-                </h3>
-
-                <p className="mt-3 font-montserrat text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  {srv.tagline}
-                </p>
-
-                {/* Price Box */}
-                <div className="mt-6 p-4 rounded-2xl bg-slate-50 border border-gray-100 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">TARIF ESTIMÉ</span>
-                    <div className="font-nunito text-2xl font-black text-brand-dark">
-                      {currency === 'XOF' ? srv.price : srv.priceEur}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 bg-white px-3 py-1.5 rounded-xl border border-gray-200">
-                    <Clock className="h-3.5 w-3.5 text-brand-primary" />
-                    <span>{srv.delay}</span>
-                  </div>
+                  <span className="rounded-full bg-[#2563EB]/20 border border-[#2563EB]/30 backdrop-blur-md px-2.5 py-0.5 text-[9px] font-bold text-blue-300">
+                    {srv.discount}
+                  </span>
                 </div>
 
-                {/* Deliverables list */}
-                <div className="mt-6">
-                  <h4 className="font-montserrat text-xs font-bold uppercase tracking-wider text-brand-dark mb-3">
-                    Livrables & Avantages inclus :
-                  </h4>
-                  <ul className="space-y-2.5">
-                    {srv.deliverables.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-xs sm:text-[13px] text-gray-700">
-                        <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mt-0.5">
-                          <Check className="h-3 w-3 stroke-[3]" />
-                        </div>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Banner Headline Content */}
+                <div className="relative z-10 my-auto text-left px-1">
+                  <div className="flex items-center gap-1 mb-1">
+                    <span className="text-[9px] font-mono text-gray-400">⭐⭐⭐⭐⭐ +80 clients satisfaits</span>
+                  </div>
+                  <h3 className="font-nunito font-black text-lg sm:text-xl text-white tracking-tight leading-snug">
+                    {srv.bannerTitle}
+                  </h3>
+                </div>
+
+                {/* Banner Bottom Decorative Strip */}
+                <div className="relative z-10 flex items-center justify-between text-[9px] text-white/60 pt-2 border-t border-white/10">
+                  <span>MathiasDev Services</span>
+                  <span className="text-blue-400 font-bold group-hover:underline">Découvrir ↗</span>
                 </div>
               </div>
 
-              {/* Card Footer & Action */}
-              <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
-                  <ShieldCheck className="h-4 w-4" />
-                  <span>Espace Client inclus</span>
+              {/* Card Body */}
+              <div className="p-6 flex flex-col justify-between flex-1">
+                <div>
+                  {/* Author / Provider Row */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-7 h-7 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center font-bold text-[10px] text-[#2563EB]">
+                      MK
+                    </div>
+                    <span className="text-xs font-bold text-gray-800">Mathias KOWOE</span>
+                  </div>
+
+                  {/* Title & Desc */}
+                  <h4 className="font-nunito text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#2563EB] transition-colors">
+                    {srv.title}
+                  </h4>
+                  <p className="mt-2 text-xs text-gray-500 leading-relaxed line-clamp-3">
+                    {srv.desc}
+                  </p>
                 </div>
 
-                <button
-                  onClick={() => onSelectService(srv.id)}
-                  className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-brand-dark px-6 py-3 text-xs font-bold text-white shadow-md hover:bg-brand-primary transition-all duration-300"
-                >
-                  <span>Me contacter</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </button>
+                {/* Footer Action Row */}
+                <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+                  <span className="font-nunito font-extrabold text-sm sm:text-base text-[#2563EB]">
+                    {srv.priceText}
+                  </span>
+
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-slate-900 group-hover:text-[#2563EB] transition-colors">
+                    <span>Découvrir</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </div>
               </div>
 
             </div>
           ))}
         </div>
 
-        {/* Custom Project Note */}
-        <div className="mt-14 rounded-3xl border border-brand-primary/20 bg-gradient-to-r from-brand-dark via-[#1A1A2E] to-[#252542] p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+        {/* Custom Project Note Banner */}
+        <div className="mt-14 rounded-3xl border border-blue-200/80 bg-gradient-to-r from-slate-900 via-slate-950 to-blue-950 p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="flex items-center gap-5">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-primary text-white shadow-glow-sm">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#2563EB] text-white shadow-lg shadow-blue-500/30">
               <Zap className="h-7 w-7" />
             </div>
             <div>
-              <h4 className="font-nunito text-xl font-bold">Vous avez un projet sur-mesure ou complexe ?</h4>
+              <h4 className="font-nunito text-xl font-bold">Vous avez un projet sur-mesure ou une demande spécifique ?</h4>
               <p className="mt-1 text-xs sm:text-sm text-gray-300">
-                Architecture API spécifique, SaaS multi-tenant, intégration ERP ou audit de sécurité.
+                Application web métier, SaaS complexe, e-commerce sur-mesure ou accompagnement privé.
               </p>
             </div>
           </div>
 
           <button
             onClick={() => onSelectService('sur-mesure')}
-            className="btn-magnetic shrink-0 rounded-full bg-white px-8 py-3.5 font-montserrat text-xs sm:text-sm font-bold text-brand-dark hover:bg-brand-primary hover:text-white transition-all shadow-lg"
+            className="btn-magnetic shrink-0 rounded-full bg-white px-8 py-3.5 font-montserrat text-xs sm:text-sm font-bold text-slate-900 hover:bg-[#2563EB] hover:text-white transition-all shadow-lg"
           >
-            Discuter d'un cahier des charges
+            Obtenir un devis instantané
           </button>
         </div>
 
