@@ -21,7 +21,6 @@ export default function PortfolioSection({ onOpenDevis }) {
       bgColor: 'from-blue-50/60 via-white to-slate-50',
       borderColor: 'border-blue-200/80 hover:border-blue-400',
       accentText: 'text-blue-600',
-      accentBg: 'bg-blue-600',
       stats: [
         { val: '10 000+', lbl: 'Membres' },
         { val: '500+', lbl: 'Assemblées' },
@@ -42,7 +41,6 @@ export default function PortfolioSection({ onOpenDevis }) {
       bgColor: 'from-[#0F0C08] via-[#1A150F] to-black',
       borderColor: 'border-amber-500/30 hover:border-amber-500',
       accentText: 'text-amber-500',
-      accentBg: 'bg-amber-500',
       isDark: true,
       stats: [
         { val: 'Entrées 🥗', lbl: 'Fraîcheur' },
@@ -64,7 +62,6 @@ export default function PortfolioSection({ onOpenDevis }) {
       bgColor: 'from-[#0A140E] via-[#102017] to-black',
       borderColor: 'border-emerald-600/30 hover:border-emerald-500',
       accentText: 'text-amber-400',
-      accentBg: 'bg-emerald-500',
       isDark: true,
       stats: [
         { val: 'Pressé', lbl: 'À froid' },
@@ -89,7 +86,6 @@ export default function PortfolioSection({ onOpenDevis }) {
       bgColor: 'from-[#0C1017] via-[#141A26] to-black',
       borderColor: 'border-orange-500/30 hover:border-orange-500',
       accentText: 'text-orange-500',
-      accentBg: 'bg-orange-500',
       isDark: true,
       stats: [
         { val: '1 245', lbl: 'Élèves' },
@@ -111,7 +107,6 @@ export default function PortfolioSection({ onOpenDevis }) {
       bgColor: 'from-[#0B131E] via-[#121B2B] to-black',
       borderColor: 'border-cyan-500/30 hover:border-cyan-400',
       accentText: 'text-cyan-400',
-      accentBg: 'bg-cyan-500',
       isDark: true,
       stats: [
         { val: 'SaaS', lbl: 'Métier' },
@@ -133,7 +128,6 @@ export default function PortfolioSection({ onOpenDevis }) {
       bgColor: 'from-[#160D18] via-[#221426] to-black',
       borderColor: 'border-rose-500/30 hover:border-rose-400',
       accentText: 'text-rose-400',
-      accentBg: 'bg-rose-500',
       isDark: true,
       stats: [
         { val: '3+ ans', lbl: 'Expérience' },
@@ -143,16 +137,16 @@ export default function PortfolioSection({ onOpenDevis }) {
     }
   ];
 
-  // Duplicate rows for seamless infinite scrolling marquee loop
+  // Tripled lists for seamless loop
   const infiniteRow1 = [...row1Projects, ...row1Projects, ...row1Projects];
   const infiniteRow2 = [...row2Projects, ...row2Projects, ...row2Projects];
 
   return (
     <section id="portfolio" className="py-20 md:py-32 bg-white relative overflow-hidden">
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 md:px-8 mb-10">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 md:px-8">
         
         {/* Section Header Row */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
           <div>
             <h2 className="font-nunito text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark leading-[1.15] tracking-tight">
               Mon <span className="text-[#EA580C]">portfolio</span>
@@ -175,134 +169,135 @@ export default function PortfolioSection({ onOpenDevis }) {
             </div>
           </a>
         </div>
-      </div>
 
-      {/* Large Wrapper containing Auto-Scrolling Marquee Tracks */}
-      <div className="w-full bg-[#F8FAFC] py-8 border-y border-gray-200/80 overflow-hidden space-y-6">
-        
-        {/* ROW 1: AUTO SCROLL LEFT */}
-        <div className="flex overflow-hidden group/track">
-          <div className="flex gap-6 animate-marquee-left group-hover/track:[animation-play-state:paused] shrink-0">
-            {infiniteRow1.map((proj, idx) => (
-              <div
-                key={`r1-${idx}`}
-                onClick={() => openProject(proj.url)}
-                className={`w-[340px] sm:w-[400px] shrink-0 cursor-pointer rounded-2xl md:rounded-3xl overflow-hidden border bg-white shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between ${proj.borderColor}`}
-              >
-                {/* Browser Window Header */}
-                <div className={`px-4 py-2.5 flex items-center justify-between border-b ${proj.isDark ? 'bg-[#181920] border-gray-800' : 'bg-slate-100/90 border-gray-200'}`}>
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+        {/* Large Rounded Container Card (Exact screenshot wrapper) */}
+        <div className="rounded-[28px] md:rounded-[36px] border border-gray-200/80 bg-[#F8FAFC] p-4 sm:p-6 md:p-8 shadow-sm overflow-hidden space-y-6">
+          
+          {/* ROW 1: AUTO SCROLL LEFT (Inside the rounded box) */}
+          <div className="flex overflow-hidden group/track">
+            <div className="flex gap-6 animate-marquee-left group-hover/track:[animation-play-state:paused] shrink-0">
+              {infiniteRow1.map((proj, idx) => (
+                <div
+                  key={`r1-${idx}`}
+                  onClick={() => openProject(proj.url)}
+                  className={`w-[320px] sm:w-[380px] shrink-0 cursor-pointer rounded-2xl md:rounded-3xl overflow-hidden border bg-white shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between ${proj.borderColor}`}
+                >
+                  {/* Browser Window Header */}
+                  <div className={`px-4 py-2.5 flex items-center justify-between border-b ${proj.isDark ? 'bg-[#181920] border-gray-800' : 'bg-slate-100/90 border-gray-200'}`}>
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                    </div>
+                    <div className={`rounded-md px-3 py-0.5 text-[10px] font-mono font-bold truncate max-w-[170px] ${proj.isDark ? 'bg-black text-gray-300 border border-gray-800' : 'bg-white text-blue-700 border border-gray-200'}`}>
+                      {proj.domain}
+                    </div>
+                    <ExternalLink className={`w-3.5 h-3.5 ${proj.isDark ? 'text-gray-500' : 'text-gray-400'}`} />
                   </div>
-                  <div className={`rounded-md px-3 py-0.5 text-[10px] font-mono font-bold truncate max-w-[170px] ${proj.isDark ? 'bg-black text-gray-300 border border-gray-800' : 'bg-white text-blue-700 border border-gray-200'}`}>
-                    {proj.domain}
+
+                  {/* Hero Preview Card Content */}
+                  <div className={`relative bg-gradient-to-br ${proj.bgColor} p-5 min-h-[250px] flex flex-col justify-between`}>
+                    <div className="flex items-center justify-between text-[11px] font-bold mb-3">
+                      <span className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${proj.isDark ? 'bg-white/10 text-white border-white/20' : 'bg-blue-100 text-blue-700 border-blue-200'}`}>
+                        {proj.badge}
+                      </span>
+                      <span className={`text-[9px] font-bold ${proj.accentText}`}>↗ Live Site</span>
+                    </div>
+
+                    <div className="relative z-10 my-auto text-left">
+                      <h3 className={`font-nunito font-black text-xl tracking-tight leading-snug ${proj.isDark ? 'text-white' : 'text-slate-900'}`}>
+                        {proj.title} <br />
+                        <span className={proj.accentText}>{proj.highlight}</span>
+                      </h3>
+                      <p className={`mt-1.5 text-[10px] leading-relaxed line-clamp-2 ${proj.isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                        {proj.desc}
+                      </p>
+                    </div>
+
+                    <div className={`mt-4 pt-3 border-t grid grid-cols-3 gap-1 text-center text-[9px] font-bold ${proj.isDark ? 'border-gray-800/80 text-white' : 'border-gray-200/80 text-slate-700'}`}>
+                      {proj.stats.map((st, sIdx) => (
+                        <div key={sIdx} className={`rounded p-1 ${proj.isDark ? 'bg-gray-900/80 border border-gray-800' : 'bg-white/80 border border-gray-100'}`}>
+                          <span className={`block font-extrabold text-[10px] ${proj.accentText}`}>{st.val}</span>
+                          <span className="text-[7px] text-gray-400 uppercase">{st.lbl}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <ExternalLink className={`w-3.5 h-3.5 ${proj.isDark ? 'text-gray-500' : 'text-gray-400'}`} />
                 </div>
-
-                {/* Hero Preview Card Content */}
-                <div className={`relative bg-gradient-to-br ${proj.bgColor} p-5 min-h-[260px] flex flex-col justify-between`}>
-                  <div className="flex items-center justify-between text-[11px] font-bold mb-3">
-                    <span className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${proj.isDark ? 'bg-white/10 text-white border-white/20' : 'bg-blue-100 text-blue-700 border-blue-200'}`}>
-                      {proj.badge}
-                    </span>
-                    <span className={`text-[9px] font-bold ${proj.accentText}`}>↗ Live Site</span>
-                  </div>
-
-                  <div className="relative z-10 my-auto text-left">
-                    <h3 className={`font-nunito font-black text-xl sm:text-2xl tracking-tight leading-snug ${proj.isDark ? 'text-white' : 'text-slate-900'}`}>
-                      {proj.title} <br />
-                      <span className={proj.accentText}>{proj.highlight}</span>
-                    </h3>
-                    <p className={`mt-1.5 text-[10px] leading-relaxed line-clamp-2 ${proj.isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                      {proj.desc}
-                    </p>
-                  </div>
-
-                  <div className={`mt-4 pt-3 border-t grid grid-cols-3 gap-1 text-center text-[9px] font-bold ${proj.isDark ? 'border-gray-800/80 text-white' : 'border-gray-200/80 text-slate-700'}`}>
-                    {proj.stats.map((st, sIdx) => (
-                      <div key={sIdx} className={`rounded p-1 ${proj.isDark ? 'bg-gray-900/80 border border-gray-800' : 'bg-white/80 border border-gray-100'}`}>
-                        <span className={`block font-extrabold text-[10px] ${proj.accentText}`}>{st.val}</span>
-                        <span className="text-[7px] text-gray-400 uppercase">{st.lbl}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+
+          {/* ROW 2: AUTO SCROLL RIGHT (Inside the rounded box) */}
+          <div className="flex overflow-hidden group/track">
+            <div className="flex gap-6 animate-marquee-right group-hover/track:[animation-play-state:paused] shrink-0">
+              {infiniteRow2.map((proj, idx) => (
+                <div
+                  key={`r2-${idx}`}
+                  onClick={() => openProject(proj.url)}
+                  className={`w-[320px] sm:w-[380px] shrink-0 cursor-pointer rounded-2xl md:rounded-3xl overflow-hidden border bg-white shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between ${proj.borderColor}`}
+                >
+                  {/* Browser Window Header */}
+                  <div className="px-4 py-2.5 flex items-center justify-between border-b bg-[#181920] border-gray-800">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                    </div>
+                    <div className="rounded-md px-3 py-0.5 text-[10px] font-mono font-bold truncate max-w-[170px] bg-black text-gray-300 border border-gray-800">
+                      {proj.domain}
+                    </div>
+                    <ExternalLink className="w-3.5 h-3.5 text-gray-500" />
+                  </div>
+
+                  {/* Hero Preview Card Content */}
+                  <div className={`relative bg-gradient-to-br ${proj.bgColor} p-5 min-h-[250px] flex flex-col justify-between`}>
+                    <div className="flex items-center justify-between text-[11px] font-bold mb-3">
+                      <span className="rounded-full px-2.5 py-0.5 text-[9px] font-bold border bg-white/10 text-white border-white/20">
+                        {proj.badge}
+                      </span>
+                      <span className={`text-[9px] font-bold ${proj.accentText}`}>↗ Live Site</span>
+                    </div>
+
+                    <div className="relative z-10 my-auto text-left">
+                      <h3 className="font-nunito font-black text-xl tracking-tight leading-snug text-white">
+                        {proj.title} <br />
+                        <span className={proj.accentText}>{proj.highlight}</span>
+                      </h3>
+                      <p className="mt-1.5 text-[10px] leading-relaxed line-clamp-2 text-gray-300">
+                        {proj.desc}
+                      </p>
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t grid grid-cols-3 gap-1 text-center text-[9px] font-bold border-gray-800/80 text-white">
+                      {proj.stats.map((st, sIdx) => (
+                        <div key={sIdx} className="rounded p-1 bg-gray-900/80 border border-gray-800">
+                          <span className={`block font-extrabold text-[10px] ${proj.accentText}`}>{st.val}</span>
+                          <span className="text-[7px] text-gray-400 uppercase">{st.lbl}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
 
-        {/* ROW 2: AUTO SCROLL RIGHT */}
-        <div className="flex overflow-hidden group/track">
-          <div className="flex gap-6 animate-marquee-right group-hover/track:[animation-play-state:paused] shrink-0">
-            {infiniteRow2.map((proj, idx) => (
-              <div
-                key={`r2-${idx}`}
-                onClick={() => openProject(proj.url)}
-                className={`w-[340px] sm:w-[400px] shrink-0 cursor-pointer rounded-2xl md:rounded-3xl overflow-hidden border bg-white shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between ${proj.borderColor}`}
-              >
-                {/* Browser Window Header */}
-                <div className="px-4 py-2.5 flex items-center justify-between border-b bg-[#181920] border-gray-800">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
-                  </div>
-                  <div className="rounded-md px-3 py-0.5 text-[10px] font-mono font-bold truncate max-w-[170px] bg-black text-gray-300 border border-gray-800">
-                    {proj.domain}
-                  </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-gray-500" />
-                </div>
-
-                {/* Hero Preview Card Content */}
-                <div className={`relative bg-gradient-to-br ${proj.bgColor} p-5 min-h-[260px] flex flex-col justify-between`}>
-                  <div className="flex items-center justify-between text-[11px] font-bold mb-3">
-                    <span className="rounded-full px-2.5 py-0.5 text-[9px] font-bold border bg-white/10 text-white border-white/20">
-                      {proj.badge}
-                    </span>
-                    <span className={`text-[9px] font-bold ${proj.accentText}`}>↗ Live Site</span>
-                  </div>
-
-                  <div className="relative z-10 my-auto text-left">
-                    <h3 className="font-nunito font-black text-xl sm:text-2xl tracking-tight leading-snug text-white">
-                      {proj.title} <br />
-                      <span className={proj.accentText}>{proj.highlight}</span>
-                    </h3>
-                    <p className="mt-1.5 text-[10px] leading-relaxed line-clamp-2 text-gray-300">
-                      {proj.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 pt-3 border-t grid grid-cols-3 gap-1 text-center text-[9px] font-bold border-gray-800/80 text-white">
-                    {proj.stats.map((st, sIdx) => (
-                      <div key={sIdx} className="rounded p-1 bg-gray-900/80 border border-gray-800">
-                        <span className={`block font-extrabold text-[10px] ${proj.accentText}`}>{st.val}</span>
-                        <span className="text-[7px] text-gray-400 uppercase">{st.lbl}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Bottom Center Action Button */}
+        <div className="mt-8 flex justify-center">
+          <a
+            href="https://mon-cv-self.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 rounded-full bg-[#1A1D27] px-8 py-3.5 text-sm font-bold text-white shadow-xl hover:bg-black transition-all duration-300 hover:scale-105"
+          >
+            <span>Voir tout le portfolio</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
         </div>
 
-      </div>
-
-      {/* Bottom Center Action Button */}
-      <div className="mt-10 flex justify-center">
-        <a
-          href="https://mon-cv-self.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2.5 rounded-full bg-[#1A1D27] px-8 py-3.5 text-sm font-bold text-white shadow-xl hover:bg-black transition-all duration-300 hover:scale-105"
-        >
-          <span>Voir tout le portfolio sur mon-cv-self.vercel.app</span>
-          <ArrowUpRight className="h-4 w-4" />
-        </a>
       </div>
     </section>
   );
