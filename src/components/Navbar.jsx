@@ -15,7 +15,7 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
         setScrolled(false);
       }
 
-      const sections = ['hero', 'probleme', 'espace-client', 'services', 'portfolio', 'processus', 'faq'];
+      const sections = ['hero', 'probleme', 'technologies', 'espace-client', 'services', 'portfolio', 'processus', 'faq'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {

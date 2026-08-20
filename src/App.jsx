@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProblemSection from './components/ProblemSection';
+import TechStackSection from './components/TechStackSection';
 import ClientPortalBento from './components/ClientPortalBento';
 import ServicesSection from './components/ServicesSection';
 import PortfolioSection from './components/PortfolioSection';
@@ -46,6 +47,8 @@ export default function App() {
         <ProblemSection 
           onOpenDevis={() => handleOpenDevis()} 
         />
+
+        <TechStackSection />
         
         <ClientPortalBento 
           onOpenSandbox={handleOpenSandbox} 

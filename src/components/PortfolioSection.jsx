@@ -1,173 +1,289 @@
-import React, { useState } from 'react';
-import { ExternalLink, Sparkles, Search, ArrowUpRight, TrendingUp, Layers, Check } from 'lucide-react';
-import { siteData } from '../data/siteData';
+import React from 'react';
+import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
 export default function PortfolioSection({ onOpenDevis }) {
-  const [selectedTag, setSelectedTag] = useState('Tous');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeProjectModal, setActiveProjectModal] = useState(null);
+  const openProject = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
-  const tags = ['Tous', 'Branding & Web', 'E-Learning', 'SaaS / Web App', 'Fintech', 'Immobilier & Luxe', 'Gestion & Facturation'];
+  const row1Projects = [
+    {
+      id: 'epf',
+      url: 'https://epf-recencement.vercel.app/',
+      domain: 'epf-recencement.vercel.app',
+      badge: 'Official 2026',
+      tag: 'RECENSEMENT NATIONAL OFFICIEL 2026',
+      title: 'Bâtissons ensemble',
+      highlight: "l'avenir de nos ministères.",
+      desc: "La plateforme officielle pour l'identification, la structuration et la valorisation des choristes, fanfaristes et musiciens.",
+      cta: 'Démarrer mon recensement ➔',
+      theme: 'blue',
+      bgColor: 'from-blue-50/60 via-white to-slate-50',
+      borderColor: 'border-blue-200/80 hover:border-blue-400',
+      accentText: 'text-blue-600',
+      accentBg: 'bg-blue-600',
+      stats: [
+        { val: '10 000+', lbl: 'Membres' },
+        { val: '500+', lbl: 'Assemblées' },
+        { val: '30+', lbl: 'Districts' }
+      ]
+    },
+    {
+      id: 'resto',
+      url: 'https://resto-saas-roan.vercel.app/',
+      domain: 'resto-saas-roan.vercel.app',
+      badge: 'Menu Digital',
+      tag: 'GASTRONOMIE AFRICAINE',
+      title: 'Zaagoor',
+      highlight: 'Restaurant',
+      desc: 'Restaurant gastronomique proposant une cuisine africaine moderne avec des saveurs authentiques et des ingrédients locaux.',
+      cta: '📍 Cotonou, Bénin • 📞 +229 01 57 30 76 77',
+      theme: 'amber',
+      bgColor: 'from-[#0F0C08] via-[#1A150F] to-black',
+      borderColor: 'border-amber-500/30 hover:border-amber-500',
+      accentText: 'text-amber-500',
+      accentBg: 'bg-amber-500',
+      isDark: true,
+      stats: [
+        { val: 'Entrées 🥗', lbl: 'Fraîcheur' },
+        { val: 'Plats 🍽️', lbl: 'Gourmand' },
+        { val: 'Grillades 🔥', lbl: 'Spécialité' }
+      ]
+    },
+    {
+      id: 'retab-jus',
+      url: 'https://re-tab.vercel.app/',
+      domain: 're-tab.vercel.app',
+      badge: 'BIENVENUE AU ReTAB',
+      tag: 'JUS 100% NATURELS',
+      title: 'La Pureté de l\'Ananas',
+      highlight: 'Béninois.',
+      desc: 'Des jus 100% naturels pressés à froid par le Réseau des Transformateurs d\'Ananas du Bénin. Sans eau, sans sucre ajouté.',
+      cta: 'Explorer nos Jus ↗',
+      theme: 'emerald',
+      bgColor: 'from-[#0A140E] via-[#102017] to-black',
+      borderColor: 'border-emerald-600/30 hover:border-emerald-500',
+      accentText: 'text-amber-400',
+      accentBg: 'bg-emerald-500',
+      isDark: true,
+      stats: [
+        { val: 'Pressé', lbl: 'À froid' },
+        { val: '100%', lbl: 'Naturel' },
+        { val: 'Bio', lbl: 'Local' }
+      ]
+    }
+  ];
 
-  const filteredProjects = siteData.projects.filter((p) => {
-    const matchesTag = selectedTag === 'Tous' || p.tag === selectedTag;
-    const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          p.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          p.stack.some(st => st.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesTag && matchesSearch;
-  });
+  const row2Projects = [
+    {
+      id: 'africa-lms',
+      url: 'https://africa-lms-projets.vercel.app/',
+      domain: 'africa-lms-projets.vercel.app',
+      badge: 'LMS Scolaire',
+      tag: 'GESTION SCOLAIRE INTELLIGENTE',
+      title: 'Système de Gestion',
+      highlight: 'Scolaire Intelligent',
+      desc: 'Accès Démo : Directeur, Secrétaire, Surveillant, Professeur, Élève, Parent.',
+      cta: 'Accéder aux Démos ➔',
+      theme: 'orange',
+      bgColor: 'from-[#0C1017] via-[#141A26] to-black',
+      borderColor: 'border-orange-500/30 hover:border-orange-500',
+      accentText: 'text-orange-500',
+      accentBg: 'bg-orange-500',
+      isDark: true,
+      stats: [
+        { val: '1 245', lbl: 'Élèves' },
+        { val: '94%', lbl: 'Présence' },
+        { val: '13.5/20', lbl: 'Moyenne' }
+      ]
+    },
+    {
+      id: 'retab-tech',
+      url: 'https://re-tab.vercel.app/',
+      domain: 're-tab.vercel.app',
+      badge: 'Consulting & Dev',
+      tag: 'ARCHITECTURES SCALABLES',
+      title: 'Plateforme & Consulting',
+      highlight: 'Web Sur-Mesure',
+      desc: 'Optimisation de processus métiers, intégration d\'outils digitaux & accompagnement stratégique.',
+      cta: 'Consulter l\'offre ↗',
+      theme: 'cyan',
+      bgColor: 'from-[#0B131E] via-[#121B2B] to-black',
+      borderColor: 'border-cyan-500/30 hover:border-cyan-400',
+      accentText: 'text-cyan-400',
+      accentBg: 'bg-cyan-500',
+      isDark: true,
+      stats: [
+        { val: 'SaaS', lbl: 'Métier' },
+        { val: 'API', lbl: 'Sécurisée' },
+        { val: 'Cloud', lbl: 'Scalable' }
+      ]
+    },
+    {
+      id: 'cv-online',
+      url: 'https://mon-cv-self.vercel.app/',
+      domain: 'mon-cv-self.vercel.app',
+      badge: 'Portfolio & CV',
+      tag: 'DEPUIS 2022',
+      title: 'Transformateur d\'idées en',
+      highlight: 'projets digitaux puissants',
+      desc: 'Développeur Web Fullstack, Designer UI/UX, Monteur Vidéo & Formateur.',
+      cta: 'Découvrir mon CV ↗',
+      theme: 'rose',
+      bgColor: 'from-[#160D18] via-[#221426] to-black',
+      borderColor: 'border-rose-500/30 hover:border-rose-400',
+      accentText: 'text-rose-400',
+      accentBg: 'bg-rose-500',
+      isDark: true,
+      stats: [
+        { val: '3+ ans', lbl: 'Expérience' },
+        { val: '50+', lbl: 'Projets' },
+        { val: '92+', lbl: 'Clients' }
+      ]
+    }
+  ];
+
+  // Duplicate rows for seamless infinite scrolling marquee loop
+  const infiniteRow1 = [...row1Projects, ...row1Projects, ...row1Projects];
+  const infiniteRow2 = [...row2Projects, ...row2Projects, ...row2Projects];
 
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-white relative">
-      <div className="mx-auto max-w-[1240px] px-5 md:px-8">
+    <section id="portfolio" className="py-20 md:py-32 bg-white relative overflow-hidden">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 md:px-8 mb-10">
         
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+        {/* Section Header Row */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-primary/20 bg-brand-primary/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider text-brand-primary mb-4">
-              <Sparkles className="h-3.5 w-3.5" />
-              Réalisations & Études de Cas
-            </div>
-            <h2 className="font-nunito text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark leading-tight">
-              Des projets concrets conçus pour <br className="hidden sm:inline" />
-              <span className="text-brand-primary">générer un impact mesurable.</span>
+            <h2 className="font-nunito text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark leading-[1.15] tracking-tight">
+              Mon <span className="text-[#EA580C]">portfolio</span>
             </h2>
-            <p className="mt-3 font-montserrat text-sm sm:text-base text-gray-600 max-w-xl">
-              Découvrez un aperçu des applications, sites vitrines et plateformes livrés avec notre accompagnement sur mesure.
+            <p className="mt-3 text-gray-500 font-medium text-base sm:text-lg max-w-2xl">
+              Quelques projets récents dont je suis fier, du site vitrine à l'application web complexe.
             </p>
           </div>
 
-          {/* Live Search Input */}
-          <div className="relative w-full md:w-72 self-start md:self-auto">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
-            <input
-              type="text"
-              placeholder="Projet, technologie (ex: Next.js)..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm rounded-2xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition-all"
-            />
-          </div>
-        </div>
-
-        {/* Tag Filter Chips */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 hide-scrollbar">
-          {tags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setSelectedTag(tag)}
-              className={`shrink-0 rounded-full px-5 py-2 text-xs font-bold transition-all ${
-                selectedTag === tag
-                  ? 'bg-brand-dark text-white shadow-md'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {filteredProjects.map((proj) => (
-            <div
-              key={proj.id}
-              onClick={() => setActiveProjectModal(proj)}
-              className="card-lift group cursor-pointer overflow-hidden rounded-[28px] border border-gray-200 bg-[#FAFBFC] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-            >
-              {/* Image Preview Container with Zoom Effect */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
-                <img
-                  src={proj.image}
-                  alt={proj.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                
-                {/* Category Pill Tag */}
-                <div className="absolute top-4 left-4">
-                  <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-brand-dark shadow-sm">
-                    {proj.tag}
-                  </span>
-                </div>
-
-                {/* Floating Metric Result Badge */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="flex items-center gap-2 rounded-xl bg-black/60 backdrop-blur-md px-3 py-1.5 text-xs font-bold text-white border border-white/10">
-                    <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
-                    <span className="truncate">{proj.stats}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-nunito text-xl font-bold text-brand-dark group-hover:text-brand-primary transition-colors">
-                      {proj.title}
-                    </h3>
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-transform group-hover:bg-brand-primary group-hover:text-white group-hover:rotate-45">
-                      <ArrowUpRight className="h-4 w-4" />
-                    </div>
-                  </div>
-
-                  <p className="mt-2.5 font-montserrat text-xs leading-relaxed text-gray-600 line-clamp-2">
-                    {proj.desc}
-                  </p>
-                </div>
-
-                {/* Stack Badges */}
-                <div className="mt-6 pt-4 border-t border-gray-200/80 flex flex-wrap items-center gap-1.5">
-                  {proj.stack.map((st, i) => (
-                    <span key={i} className="rounded-md bg-white border border-gray-200 px-2 py-0.5 text-[10px] font-mono font-medium text-gray-600">
-                      {st}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
+          {/* Top Right Action Button */}
+          <a
+            href="https://mon-cv-self.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start sm:self-auto inline-flex items-center gap-3 rounded-full border border-gray-200/90 bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-brand-dark hover:border-gray-400 hover:bg-gray-50 transition-all shadow-2xs group"
+          >
+            <span>Voir tout le portfolio</span>
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1A1D27] text-white transition-transform duration-300 group-hover:rotate-45">
+              <ArrowUpRight className="h-4 w-4" />
             </div>
-          ))}
+          </a>
+        </div>
+      </div>
+
+      {/* Large Wrapper containing Auto-Scrolling Marquee Tracks */}
+      <div className="w-full bg-[#F8FAFC] py-8 border-y border-gray-200/80 overflow-hidden space-y-6">
+        
+        {/* ROW 1: AUTO SCROLL LEFT */}
+        <div className="flex overflow-hidden group/track">
+          <div className="flex gap-6 animate-marquee-left group-hover/track:[animation-play-state:paused] shrink-0">
+            {infiniteRow1.map((proj, idx) => (
+              <div
+                key={`r1-${idx}`}
+                onClick={() => openProject(proj.url)}
+                className={`w-[340px] sm:w-[400px] shrink-0 cursor-pointer rounded-2xl md:rounded-3xl overflow-hidden border bg-white shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between ${proj.borderColor}`}
+              >
+                {/* Browser Window Header */}
+                <div className={`px-4 py-2.5 flex items-center justify-between border-b ${proj.isDark ? 'bg-[#181920] border-gray-800' : 'bg-slate-100/90 border-gray-200'}`}>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                  </div>
+                  <div className={`rounded-md px-3 py-0.5 text-[10px] font-mono font-bold truncate max-w-[170px] ${proj.isDark ? 'bg-black text-gray-300 border border-gray-800' : 'bg-white text-blue-700 border border-gray-200'}`}>
+                    {proj.domain}
+                  </div>
+                  <ExternalLink className={`w-3.5 h-3.5 ${proj.isDark ? 'text-gray-500' : 'text-gray-400'}`} />
+                </div>
+
+                {/* Hero Preview Card Content */}
+                <div className={`relative bg-gradient-to-br ${proj.bgColor} p-5 min-h-[260px] flex flex-col justify-between`}>
+                  <div className="flex items-center justify-between text-[11px] font-bold mb-3">
+                    <span className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold border ${proj.isDark ? 'bg-white/10 text-white border-white/20' : 'bg-blue-100 text-blue-700 border-blue-200'}`}>
+                      {proj.badge}
+                    </span>
+                    <span className={`text-[9px] font-bold ${proj.accentText}`}>↗ Live Site</span>
+                  </div>
+
+                  <div className="relative z-10 my-auto text-left">
+                    <h3 className={`font-nunito font-black text-xl sm:text-2xl tracking-tight leading-snug ${proj.isDark ? 'text-white' : 'text-slate-900'}`}>
+                      {proj.title} <br />
+                      <span className={proj.accentText}>{proj.highlight}</span>
+                    </h3>
+                    <p className={`mt-1.5 text-[10px] leading-relaxed line-clamp-2 ${proj.isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                      {proj.desc}
+                    </p>
+                  </div>
+
+                  <div className={`mt-4 pt-3 border-t grid grid-cols-3 gap-1 text-center text-[9px] font-bold ${proj.isDark ? 'border-gray-800/80 text-white' : 'border-gray-200/80 text-slate-700'}`}>
+                    {proj.stats.map((st, sIdx) => (
+                      <div key={sIdx} className={`rounded p-1 ${proj.isDark ? 'bg-gray-900/80 border border-gray-800' : 'bg-white/80 border border-gray-100'}`}>
+                        <span className={`block font-extrabold text-[10px] ${proj.accentText}`}>{st.val}</span>
+                        <span className="text-[7px] text-gray-400 uppercase">{st.lbl}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* If no results found */}
-        {filteredProjects.length === 0 && (
-          <div className="py-16 text-center rounded-3xl border border-dashed border-gray-300 bg-gray-50">
-            <p className="font-nunito text-lg font-bold text-gray-600">Aucun projet ne correspond à cette recherche.</p>
-            <button
-              onClick={() => { setSelectedTag('Tous'); setSearchQuery(''); }}
-              className="mt-3 text-xs font-bold text-brand-primary underline"
-            >
-              Réinitialiser les filtres
-            </button>
-          </div>
-        )}
+        {/* ROW 2: AUTO SCROLL RIGHT */}
+        <div className="flex overflow-hidden group/track">
+          <div className="flex gap-6 animate-marquee-right group-hover/track:[animation-play-state:paused] shrink-0">
+            {infiniteRow2.map((proj, idx) => (
+              <div
+                key={`r2-${idx}`}
+                onClick={() => openProject(proj.url)}
+                className={`w-[340px] sm:w-[400px] shrink-0 cursor-pointer rounded-2xl md:rounded-3xl overflow-hidden border bg-white shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between ${proj.borderColor}`}
+              >
+                {/* Browser Window Header */}
+                <div className="px-4 py-2.5 flex items-center justify-between border-b bg-[#181920] border-gray-800">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                  </div>
+                  <div className="rounded-md px-3 py-0.5 text-[10px] font-mono font-bold truncate max-w-[170px] bg-black text-gray-300 border border-gray-800">
+                    {proj.domain}
+                  </div>
+                  <ExternalLink className="w-3.5 h-3.5 text-gray-500" />
+                </div>
 
-        {/* Competences & Stack Technique Grid from CV */}
-        <div className="mt-20 pt-16 border-t border-gray-100">
-          <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#2563EB]">
-              EXPERTISE & STACK TECHNIQUE
-            </span>
-            <h3 className="mt-2 font-nunito text-2xl sm:text-3xl font-black text-brand-dark">
-              Des technologies modernes pour des projets pérennes
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {siteData.skills.map((sk, idx) => (
-              <div key={idx} className="rounded-2xl border border-gray-200/80 bg-[#FAFAFC] p-5 shadow-sm hover:shadow-md transition-all">
-                <h4 className="font-nunito text-sm font-bold text-brand-dark mb-3 flex items-center justify-between">
-                  <span>{sk.category}</span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]"></span>
-                </h4>
-                <div className="flex flex-wrap gap-1.5">
-                  {sk.items.map((item, i) => (
-                    <span key={i} className="rounded-lg bg-white border border-gray-200/70 px-2.5 py-1 text-xs font-medium text-gray-700 shadow-2xs">
-                      {item}
+                {/* Hero Preview Card Content */}
+                <div className={`relative bg-gradient-to-br ${proj.bgColor} p-5 min-h-[260px] flex flex-col justify-between`}>
+                  <div className="flex items-center justify-between text-[11px] font-bold mb-3">
+                    <span className="rounded-full px-2.5 py-0.5 text-[9px] font-bold border bg-white/10 text-white border-white/20">
+                      {proj.badge}
                     </span>
-                  ))}
+                    <span className={`text-[9px] font-bold ${proj.accentText}`}>↗ Live Site</span>
+                  </div>
+
+                  <div className="relative z-10 my-auto text-left">
+                    <h3 className="font-nunito font-black text-xl sm:text-2xl tracking-tight leading-snug text-white">
+                      {proj.title} <br />
+                      <span className={proj.accentText}>{proj.highlight}</span>
+                    </h3>
+                    <p className="mt-1.5 text-[10px] leading-relaxed line-clamp-2 text-gray-300">
+                      {proj.desc}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t grid grid-cols-3 gap-1 text-center text-[9px] font-bold border-gray-800/80 text-white">
+                    {proj.stats.map((st, sIdx) => (
+                      <div key={sIdx} className="rounded p-1 bg-gray-900/80 border border-gray-800">
+                        <span className={`block font-extrabold text-[10px] ${proj.accentText}`}>{st.val}</span>
+                        <span className="text-[7px] text-gray-400 uppercase">{st.lbl}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -176,83 +292,18 @@ export default function PortfolioSection({ onOpenDevis }) {
 
       </div>
 
-      {/* Project Case Study Modal */}
-      {activeProjectModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-2xl overflow-hidden rounded-[32px] bg-white p-6 sm:p-8 shadow-2xl animate-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto">
-            
-            <div className="flex items-center justify-between pb-4 border-b border-gray-100">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-primary">
-                  {activeProjectModal.tag}
-                </span>
-                <h3 className="font-nunito text-2xl font-black text-brand-dark">
-                  {activeProjectModal.title}
-                </h3>
-              </div>
-              <button
-                onClick={() => setActiveProjectModal(null)}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200"
-              >
-                ✕
-              </button>
-            </div>
-
-            <div className="mt-5 rounded-2xl overflow-hidden aspect-[16/9] border border-gray-200">
-              <img
-                src={activeProjectModal.image}
-                alt={activeProjectModal.title}
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-            <div className="mt-5 space-y-4">
-              <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center gap-3">
-                <TrendingUp className="h-5 w-5 text-emerald-600 shrink-0" />
-                <div className="text-xs sm:text-sm font-bold text-emerald-900">
-                  Résultat mesuré : {activeProjectModal.stats}
-                </div>
-              </div>
-
-              <p className="font-montserrat text-sm text-gray-700 leading-relaxed">
-                {activeProjectModal.desc}
-              </p>
-
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Technologies utilisées</h4>
-                <div className="flex flex-wrap gap-2">
-                  {activeProjectModal.stack.map((st, i) => (
-                    <span key={i} className="rounded-lg bg-gray-100 px-3 py-1 font-mono text-xs font-semibold text-brand-dark">
-                      {st}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between">
-              <button
-                onClick={() => setActiveProjectModal(null)}
-                className="rounded-full px-5 py-2.5 text-xs font-bold text-gray-600 hover:bg-gray-100"
-              >
-                Fermer
-              </button>
-
-              <button
-                onClick={() => {
-                  setActiveProjectModal(null);
-                  onOpenDevis();
-                }}
-                className="btn-magnetic rounded-full bg-brand-primary px-7 py-3 text-xs sm:text-sm font-bold text-white shadow-glow-sm"
-              >
-                Lancer un projet similaire
-              </button>
-            </div>
-
-          </div>
-        </div>
-      )}
-
+      {/* Bottom Center Action Button */}
+      <div className="mt-10 flex justify-center">
+        <a
+          href="https://mon-cv-self.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2.5 rounded-full bg-[#1A1D27] px-8 py-3.5 text-sm font-bold text-white shadow-xl hover:bg-black transition-all duration-300 hover:scale-105"
+        >
+          <span>Voir tout le portfolio sur mon-cv-self.vercel.app</span>
+          <ArrowUpRight className="h-4 w-4" />
+        </a>
+      </div>
     </section>
   );
 }
