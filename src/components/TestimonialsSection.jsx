@@ -12,7 +12,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-white relative">
+    <section id="temoignages" className="py-20 md:py-32 bg-white relative">
       <div className="mx-auto max-w-[1240px] px-5 md:px-8">
         
         {/* Header Row */}

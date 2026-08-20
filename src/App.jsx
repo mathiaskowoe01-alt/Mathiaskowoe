@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import ProblemSection from './components/ProblemSection';
-import TechStackSection from './components/TechStackSection';
 import ClientPortalBento from './components/ClientPortalBento';
 import ServicesSection from './components/ServicesSection';
+import TechStackSection from './components/TechStackSection';
 import PortfolioSection from './components/PortfolioSection';
 import ProcessSection from './components/ProcessSection';
 import TestimonialsSection from './components/TestimonialsSection';
@@ -37,37 +36,41 @@ export default function App() {
         onOpenSandbox={handleOpenSandbox} 
       />
 
-      {/* Main Page Sections */}
+      {/* Main Page Sections Ordered Exactly as Requested */}
       <main className="flex-grow">
+        {/* 1. Hero Section */}
         <Hero 
           onOpenDevis={() => handleOpenDevis()} 
           onOpenSandbox={handleOpenSandbox} 
         />
         
-        <ProblemSection 
-          onOpenDevis={() => handleOpenDevis()} 
-        />
-
-        <TechStackSection />
-        
+        {/* 2. Espace Client */}
         <ClientPortalBento 
           onOpenSandbox={handleOpenSandbox} 
         />
         
+        {/* 3. Mes Services */}
         <ServicesSection 
           onSelectService={(serviceId) => handleOpenDevis(serviceId)} 
         />
         
+        {/* 4. Technologie */}
+        <TechStackSection />
+        
+        {/* 5. Portfolio */}
         <PortfolioSection 
           onOpenDevis={() => handleOpenDevis()} 
         />
         
+        {/* Processus */}
         <ProcessSection 
           onOpenDevis={() => handleOpenDevis()} 
         />
         
+        {/* 6. Témoignages */}
         <TestimonialsSection />
         
+        {/* 7. FAQ */}
         <FAQSection 
           onOpenDevis={() => handleOpenDevis()} 
         />

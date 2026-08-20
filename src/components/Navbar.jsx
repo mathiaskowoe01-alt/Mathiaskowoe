@@ -15,7 +15,7 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
         setScrolled(false);
       }
 
-      const sections = ['hero', 'probleme', 'technologies', 'espace-client', 'services', 'portfolio', 'processus', 'faq'];
+      const sections = ['hero', 'espace-client', 'services', 'technologies', 'portfolio', 'processus', 'temoignages', 'faq'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -37,9 +37,11 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
 
   const navLinks = [
     { name: 'Accueil', href: '#hero', id: 'hero' },
+    { name: 'Espace Client', href: '#espace-client', id: 'espace-client' },
     { name: 'Services', href: '#services', id: 'services' },
+    { name: 'Stack Tech', href: '#technologies', id: 'technologies' },
     { name: 'Portfolio', href: '#portfolio', id: 'portfolio' },
-    { name: 'Processus', href: '#processus', id: 'processus' },
+    { name: 'Témoignages', href: '#temoignages', id: 'temoignages' },
     { name: 'FAQ', href: '#faq', id: 'faq' },
   ];
 
