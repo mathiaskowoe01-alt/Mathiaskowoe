@@ -62,20 +62,20 @@ export default function Navbar({ onOpenDevis, onOpenSandbox }) {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-6">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <a
                 key={link.id}
                 href={link.href}
-                className={`relative text-[13px] font-montserrat font-bold uppercase tracking-wider transition-colors duration-200 flex items-center gap-1.5 ${
+                className={`relative text-[11px] lg:text-[12px] xl:text-[13px] font-montserrat font-bold uppercase tracking-wider transition-colors duration-200 flex items-center gap-1 ${
                   isActive ? 'text-brand-primary' : 'text-brand-dark/80 hover:text-brand-primary'
                 }`}
               >
                 {link.name}
                 {link.badge && (
-                  <span className="rounded-full bg-brand-primary/10 px-2 py-0.5 text-[9px] font-extrabold text-brand-primary tracking-normal uppercase animate-pulse">
+                  <span className="rounded-full bg-brand-primary/10 px-1.5 py-0.5 text-[8px] font-extrabold text-brand-primary tracking-normal uppercase animate-pulse">
                     {link.badge}
                   </span>
                 )}
