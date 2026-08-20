@@ -149,7 +149,7 @@ export default function PortfolioSection({ onOpenDevis }) {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
           <div>
             <h2 className="font-nunito text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark leading-[1.15] tracking-tight">
-              Mon <span className="text-[#EA580C]">portfolio</span>
+              Mon <span className="text-[#2563EB]">portfolio</span>
             </h2>
             <p className="mt-3 text-gray-500 font-medium text-base sm:text-lg max-w-2xl">
               Quelques projets récents dont je suis fier, du site vitrine à l'application web complexe.

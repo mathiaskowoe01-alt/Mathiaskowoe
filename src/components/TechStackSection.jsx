@@ -121,7 +121,7 @@ export default function TechStackSection() {
         </div>
       ),
       bgGlow: 'hover:border-cyan-500 hover:shadow-[0_0_20px_rgba(6,182,212,0.35)]',
-      activeColor: '#06B6D4'
+      activeColor: '#2563EB'
     },
     {
       id: 'supabase',
@@ -212,18 +212,18 @@ export default function TechStackSection() {
       `}</style>
 
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[420px] bg-gradient-to-tr from-orange-200/30 via-cyan-100/20 to-transparent blur-3xl pointer-events-none rounded-full" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[420px] bg-gradient-to-tr from-blue-200/30 via-sky-100/20 to-transparent blur-3xl pointer-events-none rounded-full" />
 
       <div className="mx-auto max-w-[1360px] px-4 sm:px-6 md:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center gap-2 rounded-full bg-orange-50 border border-orange-200/80 px-4 py-1 text-xs font-black uppercase tracking-wider text-[#EA580C] shadow-sm mb-3">
-            <Layers className="h-3.5 w-3.5 text-[#EA580C]" />
+          <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200/80 px-4 py-1 text-xs font-black uppercase tracking-wider text-[#2563EB] shadow-sm mb-3">
+            <Layers className="h-3.5 w-3.5 text-[#2563EB]" />
             STACK TECHNIQUE, CREATIVE & IA
           </span>
           <h2 className="font-nunito text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark leading-[1.15] tracking-tight">
-            Les technologies que <span className="text-[#EA580C]">j'utilise</span>
+            Les technologies que <span className="text-[#2563EB]">j'utilise</span>
           </h2>
           <p className="mt-4 text-gray-500 font-medium text-base sm:text-lg">
             Je maîtrise un ensemble d'outils modernes, créatifs et d'IA avancée pour répondre à tous types de projets web
@@ -235,12 +235,12 @@ export default function TechStackSection() {
           
           {/* Top Main Badge Node */}
           <div className="relative group">
-            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-[#EA580C] text-white shadow-lg shadow-orange-500/30 ring-4 ring-orange-100 transition-transform duration-300 group-hover:scale-110 cursor-pointer">
+            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-[#2563EB] text-white shadow-lg shadow-blue-500/30 ring-4 ring-blue-100 transition-transform duration-300 group-hover:scale-110 cursor-pointer">
               <Layers className="w-8 h-8" />
             </div>
             
             {/* Small Stem Line beneath top node */}
-            <div className="w-0.5 h-6 bg-[#EA580C] mx-auto mt-1 rounded-full shadow-sm" />
+            <div className="w-0.5 h-6 bg-[#2563EB] mx-auto mt-1 rounded-full shadow-sm" />
           </div>
 
           {/* SVG Connector Lines Container with Passante Flow Animation */}
@@ -249,7 +249,6 @@ export default function TechStackSection() {
               
               {/* Central origin point from top stem: x=500, y=0 */}
               {techItems.map((item, index) => {
-                // Calculate target X coordinates for 13 items
                 const targetX = 38.46 + index * 76.92;
                 const isSelected = activeTech === index;
                 
@@ -268,12 +267,12 @@ export default function TechStackSection() {
                     <path
                       d={`M 500 0 C 500 50, ${targetX} 50, ${targetX} 100`}
                       fill="none"
-                      stroke={isSelected ? item.activeColor : '#EA580C'}
+                      stroke={isSelected ? item.activeColor : '#2563EB'}
                       strokeWidth={isSelected ? '3' : '2'}
                       strokeLinecap="round"
                       className="animate-flow-stream opacity-80"
                       style={{
-                        filter: isSelected ? `drop-shadow(0 0 6px ${item.activeColor})` : 'drop-shadow(0 0 3px rgba(234,88,12,0.4))'
+                        filter: isSelected ? `drop-shadow(0 0 6px ${item.activeColor})` : 'drop-shadow(0 0 3px rgba(37,99,235,0.4))'
                       }}
                     />
                   </g>
@@ -297,7 +296,7 @@ export default function TechStackSection() {
                   <div
                     className={`w-13 h-13 sm:w-15 sm:h-15 rounded-full bg-white border flex items-center justify-center transition-all duration-300 relative shadow-sm ${
                       isSelected
-                        ? 'border-orange-500 scale-110 shadow-lg shadow-orange-500/20 ring-4 ring-orange-50'
+                        ? 'border-blue-600 scale-110 shadow-lg shadow-blue-500/20 ring-4 ring-blue-50'
                         : 'border-gray-200/90 hover:scale-105 hover:border-gray-300'
                     } ${item.bgGlow}`}
                   >
@@ -306,8 +305,8 @@ export default function TechStackSection() {
                     {/* Active pulse ring */}
                     {isSelected && (
                       <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-orange-500"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-blue-600"></span>
                       </span>
                     )}
                   </div>
@@ -325,7 +324,7 @@ export default function TechStackSection() {
 
           {/* Active Tech Description Card */}
           <div className="mt-8 bg-white border border-gray-200/80 rounded-2xl p-5 max-w-lg w-full text-center shadow-sm transition-all duration-300">
-            <span className="text-xs font-black uppercase tracking-wider text-orange-600 bg-orange-50 px-3.5 py-1 rounded-full border border-orange-200/60 inline-block mb-2">
+            <span className="text-xs font-black uppercase tracking-wider text-[#2563EB] bg-blue-50 px-3.5 py-1 rounded-full border border-blue-200/60 inline-block mb-2">
               {techItems[activeTech].category} — {techItems[activeTech].name}
             </span>
             <p className="text-sm font-semibold text-gray-800">
@@ -341,7 +340,7 @@ export default function TechStackSection() {
             
             {/* Metric 1 */}
             <div className="flex flex-col items-center justify-center text-center md:px-8 py-4 md:py-0 group">
-              <div className="font-nunito font-extrabold text-5xl sm:text-6xl md:text-7xl text-[#EA580C] tracking-tight transition-transform duration-300 group-hover:scale-105">
+              <div className="font-nunito font-extrabold text-5xl sm:text-6xl md:text-7xl text-[#2563EB] tracking-tight transition-transform duration-300 group-hover:scale-105">
                 4+
               </div>
               <p className="mt-3 font-semibold text-gray-600 text-base sm:text-lg">
@@ -351,7 +350,7 @@ export default function TechStackSection() {
 
             {/* Metric 2 */}
             <div className="flex flex-col items-center justify-center text-center md:px-8 py-4 md:py-0 group">
-              <div className="font-nunito font-extrabold text-5xl sm:text-6xl md:text-7xl text-[#EA580C] tracking-tight transition-transform duration-300 group-hover:scale-105">
+              <div className="font-nunito font-extrabold text-5xl sm:text-6xl md:text-7xl text-[#2563EB] tracking-tight transition-transform duration-300 group-hover:scale-105">
                 50+
               </div>
               <p className="mt-3 font-semibold text-gray-600 text-base sm:text-lg">
@@ -361,7 +360,7 @@ export default function TechStackSection() {
 
             {/* Metric 3 */}
             <div className="flex flex-col items-center justify-center text-center md:px-8 py-4 md:py-0 group">
-              <div className="font-nunito font-extrabold text-5xl sm:text-6xl md:text-7xl text-[#EA580C] tracking-tight transition-transform duration-300 group-hover:scale-105">
+              <div className="font-nunito font-extrabold text-5xl sm:text-6xl md:text-7xl text-[#2563EB] tracking-tight transition-transform duration-300 group-hover:scale-105">
                 92+
               </div>
               <p className="mt-3 font-semibold text-gray-600 text-base sm:text-lg">
