@@ -85,47 +85,41 @@ export default function ClientPortalBento({ onOpenSandbox }) {
             onClick={onOpenSandbox}
             className="group cursor-pointer rounded-[32px] sm:rounded-[36px] border border-gray-100/90 bg-white p-6 sm:p-8 flex flex-col justify-between shadow-[0_15px_40px_-15px_rgba(0,0,0,0.06)] hover:shadow-xl transition-all duration-300"
           >
-            {/* Top Visual Mockup */}
-            <div className="rounded-2xl border border-gray-100 bg-[#FAFAFC] p-4 sm:p-5 space-y-2.5 shadow-inner">
+            {/* Top Visual Mockup with Vertical Auto-Scroll (Bas vers le Haut) */}
+            <div className="rounded-2xl border border-gray-100 bg-[#FAFAFC] p-3 sm:p-4 shadow-inner h-[205px] overflow-hidden relative group/vtrack">
               
-              <div className="flex items-center justify-between rounded-xl bg-white border border-gray-100 px-3.5 py-2.5 text-xs shadow-sm transition-transform group-hover:translate-x-1 duration-300">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0 animate-pulse"></span>
-                  <span className="truncate font-montserrat font-medium text-gray-700 text-[11px] sm:text-xs">
-                    Preview en ligne mise à jour
-                  </span>
-                </div>
-                <span className="font-mono text-[10px] font-bold text-gray-400 uppercase shrink-0">3H</span>
-              </div>
+              {/* Fade Gradient Masks for Smooth Top & Bottom Clipping */}
+              <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-[#FAFAFC] to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[#FAFAFC] to-transparent z-10 pointer-events-none"></div>
 
-              <div className="flex items-center justify-between rounded-xl bg-white border border-gray-100 px-3.5 py-2.5 text-xs shadow-sm transition-transform group-hover:translate-x-1 duration-300 delay-75">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="h-2 w-2 rounded-full bg-amber-400 shrink-0"></span>
-                  <span className="truncate font-montserrat font-medium text-gray-700 text-[11px] sm:text-xs">
-                    Nouvelle tâche créée
-                  </span>
-                </div>
-                <span className="font-mono text-[10px] font-bold text-gray-400 uppercase shrink-0">5H</span>
-              </div>
-
-              <div className="flex items-center justify-between rounded-xl bg-white border border-gray-100 px-3.5 py-2.5 text-xs shadow-sm transition-transform group-hover:translate-x-1 duration-300 delay-150">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0"></span>
-                  <span className="truncate font-montserrat font-medium text-gray-700 text-[11px] sm:text-xs">
-                    Contrat signé par le client
-                  </span>
-                </div>
-                <span className="font-mono text-[10px] font-bold text-gray-400 uppercase shrink-0">HIER</span>
-              </div>
-
-              <div className="flex items-center justify-between rounded-xl bg-white/60 border border-gray-100 px-3.5 py-2.5 text-xs">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="h-2 w-2 rounded-full bg-gray-300 shrink-0"></span>
-                  <span className="truncate font-montserrat font-medium text-gray-400 text-[11px] sm:text-xs">
-                    Progression mise à jour : 40%
-                  </span>
-                </div>
-                <span className="font-mono text-[10px] font-bold text-gray-300 uppercase shrink-0">HIER</span>
+              {/* Vertical Animated Marquee Track */}
+              <div className="space-y-2.5 animate-scroll-up group-hover/vtrack:[animation-play-state:paused] py-1">
+                {[
+                  { text: 'Preview en ligne mise à jour', time: '3H', dot: 'bg-emerald-500 animate-pulse', border: 'border-gray-100' },
+                  { text: 'Nouvelle tâche créée', time: '5H', dot: 'bg-amber-400', border: 'border-gray-100' },
+                  { text: 'Contrat signé par le client', time: 'HIER', dot: 'bg-emerald-500', border: 'border-gray-100' },
+                  { text: 'Progression mise à jour : 40%', time: 'HIER', dot: 'bg-blue-500', border: 'border-gray-100' },
+                  { text: 'Maquettes Figma validées', time: '2J', dot: 'bg-purple-500', border: 'border-gray-100' },
+                  { text: 'Acompte projet confirmé', time: '3J', dot: 'bg-emerald-500', border: 'border-gray-100' },
+                  
+                  // Duplicated array items for seamless 100% infinite vertical loop
+                  { text: 'Preview en ligne mise à jour', time: '3H', dot: 'bg-emerald-500 animate-pulse', border: 'border-gray-100' },
+                  { text: 'Nouvelle tâche créée', time: '5H', dot: 'bg-amber-400', border: 'border-gray-100' },
+                  { text: 'Contrat signé par le client', time: 'HIER', dot: 'bg-emerald-500', border: 'border-gray-100' },
+                  { text: 'Progression mise à jour : 40%', time: 'HIER', dot: 'bg-blue-500', border: 'border-gray-100' },
+                  { text: 'Maquettes Figma validées', time: '2J', dot: 'bg-purple-500', border: 'border-gray-100' },
+                  { text: 'Acompte projet confirmé', time: '3J', dot: 'bg-emerald-500', border: 'border-gray-100' }
+                ].map((item, idx) => (
+                  <div key={idx} className={`flex items-center justify-between rounded-xl bg-white border ${item.border} px-3.5 py-2.5 text-xs shadow-sm transition-transform hover:scale-[1.02]`}>
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className={`h-2 w-2 rounded-full ${item.dot} shrink-0`}></span>
+                      <span className="truncate font-montserrat font-medium text-gray-700 text-[11px] sm:text-xs">
+                        {item.text}
+                      </span>
+                    </div>
+                    <span className="font-mono text-[10px] font-bold text-gray-400 uppercase shrink-0 ml-2">{item.time}</span>
+                  </div>
+                ))}
               </div>
 
             </div>
